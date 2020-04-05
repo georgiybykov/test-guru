@@ -4,16 +4,25 @@ Training project from Thinknetica Web-Development Course.
 
 # List of entities* for the Test-Guru project:
 
-          User: has his own name and group. Authentication of user.
+### User
 
-          Test: is the main entitie of the project.
+  It has his own name and group. Authentication of user.
 
-          Question: belongs to tests; and contains question text and list of answers.
+### Test
 
-          Answer: related to the question; and contains answer text.
+  It is the main entitie of the project.
 
-          Result: contains test results.
+### Question
 
+  It belongs to tests; and contains question text and list of answers.
+
+### Answer
+
+  It is related to the question; and contains answer text.
+
+### Result
+
+  It contains test results.
 
 
 *(real-world objects)
