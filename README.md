@@ -25,4 +25,5 @@ Training project from Thinknetica Web-Development Course.
   It contains test results.
 
 
+
 ###### *(real-world objects)
