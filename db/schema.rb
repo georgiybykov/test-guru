@@ -10,17 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_10_233143) do
+ActiveRecord::Schema.define(version: 2020_04_11_003000) do
 
   create_table "answers", force: :cascade do |t|
     t.text "body"
-    t.boolean "correct"
+    t.boolean "correct", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string "title", limit: 20
+    t.string "title", limit: 30
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -32,15 +32,15 @@ ActiveRecord::Schema.define(version: 2020_04_10_233143) do
   end
 
   create_table "results", force: :cascade do |t|
-    t.integer "score"
+    t.integer "score", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "tests", force: :cascade do |t|
     t.string "title", limit: 30
-    t.integer "level"
-    t.boolean "presence"
+    t.integer "level", default: 1
+    t.boolean "presence", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -52,4 +52,5 @@ ActiveRecord::Schema.define(version: 2020_04_10_233143) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
+
 end
