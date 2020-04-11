@@ -10,35 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_11_003000) do
+ActiveRecord::Schema.define(version: 2020_04_11_010623) do
 
   create_table "answers", force: :cascade do |t|
-    t.text "body", default: "The text of an answer"
+    t.text "body", default: "The text of an answer", null: false
     t.boolean "correct", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string "title", limit: 30, default: "The name of the test category"
+    t.string "title", limit: 30, default: "The name of the test category", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "questions", force: :cascade do |t|
-    t.text "body", default: "The text of a question"
+    t.text "body", default: "The text of a question", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "results", force: :cascade do |t|
-    t.integer "score", default: 0
+    t.integer "score", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "tests", force: :cascade do |t|
-    t.string "title", limit: 30, default: "The title of the test"
+    t.string "title", limit: 30, default: "The title of the test", null: false
     t.integer "level", default: 1
     t.boolean "presence", default: false
     t.datetime "created_at", precision: 6, null: false
@@ -46,9 +46,9 @@ ActiveRecord::Schema.define(version: 2020_04_11_003000) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name", limit: 20, default: "Username"
-    t.string "email", limit: 40, default: "email@mail.com"
-    t.string "password_digest", default: "******"
+    t.string "name", limit: 20, default: "Username", null: false
+    t.string "email", limit: 40, default: "email@mail.com", null: false
+    t.string "password_digest", default: "******", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
