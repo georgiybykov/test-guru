@@ -24,7 +24,7 @@ Training project from Thinknetica Web-Development Course.
 
   It is related to the question; and contains answer text.
 
-### Result
+### UserTest
 
   Is is a reference table between `users` and `tests` tables.
 

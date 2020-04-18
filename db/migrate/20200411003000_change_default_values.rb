@@ -15,6 +15,5 @@ class ChangeDefaultValues < ActiveRecord::Migration[6.0]
     change_column_default :tests, :level, from: nil, to: 1
     change_column_default :tests, :presence, from: nil, to: false
     change_column_default :answers, :correct, from: nil, to: false
-    change_column_default :results, :score, from: nil, to: 0
   end
 end

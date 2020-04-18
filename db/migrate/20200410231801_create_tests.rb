@@ -4,6 +4,7 @@ class CreateTests < ActiveRecord::Migration[6.0]
       t.string :title, limit: 30
       t.integer :level
       t.boolean :presence
+      t.datetime :published_at
 
       t.timestamps
     end
