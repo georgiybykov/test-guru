@@ -11,6 +11,6 @@ class User < ApplicationRecord
   # end
 
   def show_tests_by_level(level)
-    Test.joins(:tests_users).where(level: level)
+    tests.where(level: level)
   end
 end
