@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_11_013149) do
+ActiveRecord::Schema.define(version: 2020_04_18_220340) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2020_04_11_013149) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "question_id", null: false
-    t.index ["question_id"], name: "index_answers_on_question_id"
+    t.index ["question_id"], name: "index_answers_on_question_id", unique: true
   end
 
   create_table "categories", force: :cascade do |t|
@@ -35,17 +35,7 @@ ActiveRecord::Schema.define(version: 2020_04_11_013149) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "test_id", null: false
-    t.index ["test_id"], name: "index_questions_on_test_id"
-  end
-
-  create_table "results", force: :cascade do |t|
-    t.integer "score", default: 0, null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "test_id", null: false
-    t.bigint "user_id", null: false
-    t.index ["test_id"], name: "index_results_on_test_id"
-    t.index ["user_id"], name: "index_results_on_user_id"
+    t.index ["test_id"], name: "index_questions_on_test_id", unique: true
   end
 
   create_table "tests", force: :cascade do |t|
@@ -54,8 +44,19 @@ ActiveRecord::Schema.define(version: 2020_04_11_013149) do
     t.boolean "presence", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "category_id", null: false
-    t.index ["category_id"], name: "index_tests_on_category_id"
+    t.bigint "category_id"
+    t.bigint "author_id", null: false
+    t.index ["author_id"], name: "index_tests_on_author_id", unique: true
+    t.index ["category_id"], name: "index_tests_on_category_id", unique: true
+  end
+
+  create_table "tests_users", id: false, force: :cascade do |t|
+    t.bigint "test_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["test_id"], name: "index_tests_users_on_test_id", unique: true
+    t.index ["user_id"], name: "index_tests_users_on_user_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -68,7 +69,8 @@ ActiveRecord::Schema.define(version: 2020_04_11_013149) do
 
   add_foreign_key "answers", "questions"
   add_foreign_key "questions", "tests"
-  add_foreign_key "results", "tests"
-  add_foreign_key "results", "users"
   add_foreign_key "tests", "categories"
+  add_foreign_key "tests", "users", column: "author_id"
+  add_foreign_key "tests_users", "tests"
+  add_foreign_key "tests_users", "users"
 end
