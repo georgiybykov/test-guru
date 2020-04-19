@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  has_many :authored_tests, class_name: 'Test', inverse_of: :author, foreign_key: :author_id, dependent: :destroy
+  has_many :tests_users, dependant: :destroy
+  has_many :tests, through: :tests_users
+
   has_secure_password
 
   def user_tests_by_level(level)
