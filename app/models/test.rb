@@ -5,13 +5,6 @@ class Test < ApplicationRecord
   has_many :tests_users, dependent: :destroy
   has_many :users, through: :tests_users
 
-  # def self.show_titles_by_category(category_title)
-  #   joins( "JOIN categories ON categories.id = tests.category_id" )
-  #     .where( categories: { title: category_title })
-  #       .order(title: :desc)
-  #         .pluck(:title)
-  # end
-
   def self.show_titles_by_category(category_title)
     joins(:category).where( categories: { title: category_title }).order(title: :desc).pluck(:title)
   end
