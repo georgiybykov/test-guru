@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2020_04_18_220340) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "question_id", null: false
-    t.index ["question_id"], name: "index_answers_on_question_id"
+    t.index ["question_id"], name: "index_answers_on_question_id", unique: true
   end
 
   create_table "categories", force: :cascade do |t|
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2020_04_18_220340) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "test_id", null: false
-    t.index ["test_id"], name: "index_questions_on_test_id"
+    t.index ["test_id"], name: "index_questions_on_test_id", unique: true
   end
 
   create_table "tests", force: :cascade do |t|
@@ -46,11 +46,11 @@ ActiveRecord::Schema.define(version: 2020_04_18_220340) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "category_id"
     t.bigint "author_id", null: false
-    t.index ["author_id"], name: "index_tests_on_author_id"
-    t.index ["category_id"], name: "index_tests_on_category_id"
+    t.index ["author_id"], name: "index_tests_on_author_id", unique: true
+    t.index ["category_id"], name: "index_tests_on_category_id", unique: true
   end
 
-  create_table "tests_users", id: false, force: :cascade do |t|
+  create_table "tests_users", force: :cascade do |t|
     t.bigint "test_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
