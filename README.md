@@ -8,6 +8,10 @@ Training project from Thinknetica Web-Development Course.
 
   It has his own name and group. Authentication of user.
 
+### Category
+
+  It indicates on the category of the test.
+
 ### Test
 
   It is the main entitie of the project.
@@ -20,9 +24,9 @@ Training project from Thinknetica Web-Development Course.
 
   It is related to the question; and contains answer text.
 
-### Result
+### UserTest
 
-  It contains test results.
+  Is is a reference table between `users` and `tests` tables.
 
 
 
