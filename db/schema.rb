@@ -55,8 +55,7 @@ ActiveRecord::Schema.define(version: 2020_04_18_220340) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["test_id"], name: "index_tests_users_on_test_id"
-    t.index ["user_id"], name: "index_tests_users_on_user_id"
+    t.index ["test_id", "user_id"], name: "index_tests_users_on_test_id_and_user_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|
