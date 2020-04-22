@@ -5,6 +5,9 @@ class Test < ApplicationRecord
   has_many :tests_users, dependent: :destroy
   has_many :users, through: :tests_users
 
+  validates :title, presence: true
+  validates :level, numericality: { only_integer: true, even: true }
+
   scope :easy_level, -> { where(level: 0..1) }
   scope :middle_level, -> { where(level: 2..4) }
   scope :hard_level, -> { where(level: 5..Float::INFINITY) }
