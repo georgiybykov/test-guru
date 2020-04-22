@@ -7,6 +7,6 @@ class Answer < ApplicationRecord
   scope :correct_answer, -> { where(correct: true) }
 
   def limited_quantity_of_answers
-    errors.add(:question, 'too much answers (1..4)') unless question.answers.count < 4
+    errors.add(:question, 'too much answers (1..4)') if question.answers.count >= 4
   end
 end
