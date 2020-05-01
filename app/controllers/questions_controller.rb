@@ -2,6 +2,8 @@ class QuestionsController < ApplicationController
   before_action :find_test, only: %i[index]
   before_action :find_question, only: %i[show]
 
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
+
   def index
     @questions = @test.questions.all
 
@@ -9,8 +11,9 @@ class QuestionsController < ApplicationController
     # render inline: '<%= @questions.inspect %>'
   end
 
-  # def create
-  # end
+  def create
+
+  end
 
   # def new
   # end
@@ -19,7 +22,12 @@ class QuestionsController < ApplicationController
   # end
 
   def show
-    render plain: @question.inspect
+    question_with_answers = [
+      "Question: #{@question.inspect}",
+      "Answers: #{@question.answers.inspect}"
+    ]
+
+    render plain: question_with_answers.join("\n")
   end
 
   # def update
@@ -36,5 +44,9 @@ class QuestionsController < ApplicationController
 
   def find_question
     @question = Question.find(params[:id])
+  end
+
+  def rescue_with_question_not_found
+    render plain: 'Question was not found!'
   end
 end
