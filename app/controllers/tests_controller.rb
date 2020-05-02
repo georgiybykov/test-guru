@@ -5,11 +5,29 @@ class TestsController < ApplicationController
     @tests = Test.all
   end
 
+  def create
+    @test = Test.new(test_params)
+
+    if @test.save
+      redirect_to @test
+    else
+      render :new
+    end
+  end
+
+  def new
+    @test = Test.new
+  end
+
   def show
     @test
   end
 
   private
+
+  def test_params
+    params.require(:test).permit(:title, :level)
+  end
 
   def find_test
     @test = Test.find(params[:id])
