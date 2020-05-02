@@ -13,7 +13,7 @@ class QuestionsController < ApplicationController
 
   def create
     if @test.questions.create(question_params)
-      redirect_to test_questions_path
+      redirect_to test_questions_path(@test)
     else
       render plain: @test.errors.massages
     end
