@@ -6,9 +6,7 @@
 
 <p>
   <strong>Answers:</strong>
-  <% @question.answers.each do |answer| %>
-    <li><i><%= answer.body %></i></li>
-  <% end %>
+  <%= render @question.answers %>
 </p>
 
 <p>
