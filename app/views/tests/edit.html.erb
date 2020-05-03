@@ -2,10 +2,4 @@
 
 <%= render 'form' %>
 
-<p>
-  <%= link_to 'Delete',
-              test_path(@test),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %>
-  <%= link_to 'Back', tests_path %>
-</p>
+<p><%= link_to 'Back', tests_path %></p>
