@@ -1,5 +1,5 @@
 class TestsController < ApplicationController
-  before_action :find_test, only: %i[show edit update]
+  before_action :find_test, only: %i[show edit update destroy]
 
   def index
     @tests = Test.all
@@ -32,7 +32,9 @@ class TestsController < ApplicationController
   end
 
   def destroy
+    @test.destroy
 
+    redirect_to tests_path, flash: {notice: 'Test has been successfuly deleted!'}
   end
 
   private

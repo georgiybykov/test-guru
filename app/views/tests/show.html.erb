@@ -14,3 +14,10 @@
     <ul><i><%= question.body %></i></ul>
   <% end %>
 </p>
+
+<%= link_to 'Edit', edit_test_path(@test) %>
+<%= link_to 'Delete',
+            test_path(@test),
+            method: :delete,
+            data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Back', tests_path %>
