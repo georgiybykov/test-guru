@@ -12,14 +12,14 @@ users = User.create!([
 
 tests = Test.create!([
   { title: 'Beginner', level: 0, presence: true, category: categories[0], author: users[0] },
-  { title: 'Middle', level: 1, presence: true, category: categories[1], author: users[2] },
-  { title: 'Advanced', level: 2, presence: true, category: categories[2], author: users[1] }
+  { title: 'Middle', level: 1, presence: true, category: categories[1], author: users[1] },
+  { title: 'Advanced', level: 2, presence: true, category: categories[2], author: users[2] }
 ])
 
 tests_users = TestsUser.create!([
   { test: tests[0], user: users[0] },
-  { test: tests[1], user: users[2] },
-  { test: tests[2], user: users[1] }
+  { test: tests[1], user: users[1] },
+  { test: tests[2], user: users[2] }
 ])
 
 questions = Question.create!([
