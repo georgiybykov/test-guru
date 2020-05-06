@@ -7,15 +7,7 @@ class TestsController < ApplicationController
     @tests = Test.all
   end
 
-  def create
-    @test = Test.new(test_params)
-
-    if @test.save
-      redirect_to @test
-    else
-      render :new
-    end
-  end
+  def show; end
 
   def new
     @test = Test.new
@@ -23,10 +15,18 @@ class TestsController < ApplicationController
 
   def edit; end
 
-  def show; end
+  def create
+    @test = Test.new(test_params)
+
+    if @test.save
+      redirect_to @test, notice: 'Test was successfully created!'
+    else
+      render :new
+    end
+  end
 
   def update
-    if @test.update(test_params)
+    if @test.update(test_params), notice: 'Test was successfully updated.'
       redirect_to @test
     else
       render :edit
@@ -35,8 +35,7 @@ class TestsController < ApplicationController
 
   def destroy
     @test.destroy
-
-    redirect_to tests_path
+    redirect_to tests_path, notice: 'Test was successfully destroyed.'
   end
 
   private
