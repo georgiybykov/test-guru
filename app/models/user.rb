@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :authored_tests, class_name: 'Test', inverse_of: :author, foreign_key: :author_id, dependent: :destroy
-  has_many :tests_users, dependent: :destroy
-  has_many :tests, through: :tests_users
+  has_many :test_passages, dependent: :destroy
+  has_many :tests, through: :test_passages
 
   validates :name, presence: true, length: { within: 2..20 }
   validates :email, presence: true, length: { within: 4..30 }
