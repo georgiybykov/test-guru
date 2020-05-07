@@ -16,7 +16,7 @@ tests = Test.create!([
   { title: 'Advanced', level: 2, presence: true, category: categories[2], author: users[2] }
 ])
 
-tests_users = TestsUser.create!([
+test_passages = TestPassage.create!([
   { test: tests[0], user: users[0] },
   { test: tests[1], user: users[1] },
   { test: tests[2], user: users[2] }
