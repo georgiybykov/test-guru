@@ -26,8 +26,8 @@ class TestsController < ApplicationController
   end
 
   def update
-    if @test.update(test_params), notice: 'Test was successfully updated.'
-      redirect_to @test
+    if @test.update(test_params)
+      redirect_to @test, notice: 'Test was successfully updated.'
     else
       render :edit
     end
