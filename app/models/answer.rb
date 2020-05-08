@@ -4,7 +4,7 @@ class Answer < ApplicationRecord
   validates :body, presence: true
   validate :limited_quantity_of_answers, on: :create
 
-  scope :correct_answer, -> { where(correct: true) }
+  scope :correct, -> { where(correct: true) }
 
   def limited_quantity_of_answers
     errors.add(:question, 'has too much answers (it should be 1..4)') if question.answers.count >= 4
