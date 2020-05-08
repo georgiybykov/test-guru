@@ -22,6 +22,14 @@ class TestPassage < ApplicationRecord
     test.questions.count
   end
 
+  def percent_result
+    correct_questions * 100 / questions_count
+  end
+
+  def success?
+    percent_result >= 85
+  end
+
   private
 
   def before_validation_set_next_question
