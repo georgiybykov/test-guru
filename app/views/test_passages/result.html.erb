@@ -2,7 +2,7 @@
 
 <p>
   <b>Your Test passage result is:</b>
-  <span class="passage-result <%= @test_passage.success? ? 'success' : 'failure' %>" >
+  <span class="passage-result <%= success_failure(@test_passage) %>" >
     <%= @test_passage.percent_result %> %
     <p><b><u><%= result_message(@test_passage) %></u></b></p>
   </span>
