@@ -24,9 +24,9 @@ Training project from Thinknetica Web-Development Course.
 
   It is related to the question; and contains answer text.
 
-### TestsUser
+### TestPassage
 
-  Is is a reference table between `tests` and `users` tables.
+  Is is a reference table between `tests` and `users` tables. Also provides access to the information about correct user's questions and link to current question of the test passage.
 
 
 
