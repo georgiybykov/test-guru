@@ -1,23 +1,22 @@
-<p>
-  <strong>Title</strong>
-  <%= @test.title %>
-</p>
+<h1>Test: <%= @test.title %></h1>
 
 <p>
-  <strong>Level</strong>
+  <strong>Level:</strong>
   <%= @test.level %>
 </p>
 
-<p>
-  <strong>Questions:</strong>
-  <% @test.questions.each do |question| %>
-    <ul><i><%= question.body %></i></ul>
-  <% end %>
-</p>
+<%= link_to 'New Question', new_test_question_path(@test) %>
+
+<h2>Questions:</h2>
+
+<ol>
+  <%= render @test.questions %>
+</ol>
 
 <p>
+  <%= link_to 'Edit', edit_test_path(@test) %>
   <%= link_to 'Delete',
-              test_path(@test),
+              @test,
               method: :delete,
               data: { confirm: 'Are you sure?' } %>
   <%= link_to 'Back', tests_path %>
