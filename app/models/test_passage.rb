@@ -14,6 +14,14 @@ class TestPassage < ApplicationRecord
     current_question.nil?
   end
 
+  def current_question_number
+    test.questions.where('id <= ?', current_question.id).count
+  end
+
+  def questions_count
+    test.questions.count
+  end
+
   private
 
   def before_validation_set_next_question
