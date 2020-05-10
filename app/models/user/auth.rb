@@ -8,7 +8,7 @@ module User::Auth
     validates :name, presence: true, length: { within: 2..20 }
     validates :email, presence: true, length: { within: 4..30 }
     validates :password, presence: true, length: { minimum: 6 }, if: Proc.new { |u| u.password_digest.blank? }
-    validates :password_confirmation, presence: true
+    validates :password, confirmation: true
   end
 
   def password=(password_string)
