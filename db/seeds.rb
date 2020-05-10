@@ -5,9 +5,9 @@ categories = Category.create!([
 )
 
 users = User.create!([
-  { name: 'TestName', email: 'test@email.com', password_digest: 'TestPassword' },
-  { name: 'TestName1', email: 'test1@email.com', password_digest: 'TestPassword1' },
-  { name: 'TestName2', email: 'test2@email.com', password_digest: 'TestPassword2' }
+  { name: 'testname', email: 'test@email.com', password: 'testpassword', password_confirmation: 'testpassword' },
+  { name: 'testname1', email: 'test1@email.com', password: 'testpassword1', password_confirmation: 'testpassword1' },
+  { name: 'testname2', email: 'test2@email.com', password: 'testpassword2', password_confirmation: 'testpassword2' }
 ])
 
 tests = Test.create!([
