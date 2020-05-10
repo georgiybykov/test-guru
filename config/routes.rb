@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root 'tests#index'
 
-  get :singup, to: 'users#new'
+  get :signup, to: 'users#new'
 
   resources :users, only: %i[create]
 
