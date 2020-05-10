@@ -2,6 +2,10 @@ Rails.application.routes.draw do
 
   root 'tests#index'
 
+  get :singup, to: 'users#new'
+
+  resources :users, only: %i[create]
+
   resources :tests do
     resources :questions, shallow: true, except: :index do
       resources :answers, shallow: true, except: :index
