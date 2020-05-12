@@ -1,3 +1,5 @@
+require 'digest/sha1'
+
 class User < ApplicationRecord
   EMAIL_FORMAT = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
 
