@@ -1,6 +1,6 @@
 module TestPassagesHelper
   TEST_PASSAGE = {
-    success: 'You have been completed Test successfully!',
+    success: 'You have been completed the Test successfully!',
     failure: 'You have been failed the Test!'
   }.freeze
 
