@@ -17,6 +17,7 @@ class Admin::TestsController < Admin::BaseController
 
   def create
     @test = Test.new(test_params)
+    @test.author = current_user.authored_tests
 
     if @test.save
       redirect_to [:admin, @test], notice: 'Test was successfully created!'
