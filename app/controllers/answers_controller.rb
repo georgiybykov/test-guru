@@ -22,7 +22,7 @@ class AnswersController < ApplicationController
 
   def update
     if @answer.update(answer_params)
-      redirect_to @answer, notice: 'Answer was successfully updated.'
+      redirect_to @answer, notice: 'Answer was successfully updated!'
     else
       render :edit
     end
@@ -30,7 +30,7 @@ class AnswersController < ApplicationController
 
   def destroy
     @answer.destroy
-    redirect_to @answer.question, notice: 'Answer was successfully destroyed.'
+    redirect_to @answer.question, notice: 'Answer was successfully destroyed!'
   end
 
   private
