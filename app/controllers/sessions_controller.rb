@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
   def destroy
     session.delete(:user_id)
     cookies.delete(:redirect_user)
-    current_user = nil
+    @current_user = nil
     redirect_to login_path
   end
 end
