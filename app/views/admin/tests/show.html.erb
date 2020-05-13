@@ -5,16 +5,16 @@
   <%= @test.level %>
 </p>
 
-<%= link_to 'New Question', new_test_question_path(@test) %>
+<%= link_to 'New Question', new_admin_test_question_path(@test) %>
 
 <h2>Questions:</h2>
 
 <ol>
-  <%= render partial: 'questions/question', collection: @test.questions %>
+  <%= render @test.questions %>
 </ol>
 
 <p>
-  <%= link_to 'Edit', edit_admin_test_path(@test) %>
+  <%= link_to 'Edit Test', edit_admin_test_path(@test) %>
   <%= link_to 'Delete',
               admin_test_path(@test),
               method: :delete,

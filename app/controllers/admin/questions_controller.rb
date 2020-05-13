@@ -1,4 +1,4 @@
-class QuestionsController < ApplicationController
+class Admin::QuestionsController < Admin::BaseController
   before_action :set_test, only: %i[new create]
   before_action :set_question, only: %i[show edit update destroy]
 
@@ -24,7 +24,7 @@ class QuestionsController < ApplicationController
 
   def update
     if @question.update(question_params)
-      redirect_to @question, notice: 'Question was successfully updated!'
+      redirect_to admin_question_path(@question), notice: 'Question was successfully updated!'
     else
       render :edit
     end
