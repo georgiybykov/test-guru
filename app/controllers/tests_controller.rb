@@ -1,41 +1,11 @@
 class TestsController < ApplicationController
-  before_action :set_test, only: %i[show edit update destroy start]
+  before_action :authenticate_user!
+  before_action :set_test, only: :start
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
   def index
     @tests = Test.all
-  end
-
-  def show; end
-
-  def new
-    @test = Test.new
-  end
-
-  def edit; end
-
-  def create
-    @test = Test.new(test_params)
-
-    if @test.save
-      redirect_to @test, notice: 'Test was successfully created!'
-    else
-      render :new
-    end
-  end
-
-  def update
-    if @test.update(test_params)
-      redirect_to @test, notice: 'Test was successfully updated.'
-    else
-      render :edit
-    end
-  end
-
-  def destroy
-    @test.destroy
-    redirect_to tests_path, notice: 'Test was successfully destroyed.'
   end
 
   def start
