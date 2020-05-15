@@ -37,7 +37,7 @@ en:
         edit_test_button: "Edit"
         delete_test_button: "Delete"
       show:
-        test_title: "Test: "
+        header: "Test: %{title}"
         level: "Level"
         new_question_button: "New Question"
         questions_title: "Questions:"
@@ -48,7 +48,7 @@ en:
         header: "Create New Test"
         back_tests_button: "Back"
       edit:
-        header: "Edit Test"
+        header: "Edit Test: %{title}"
         back_tests_button: "Back"
       form:
         title: "Title"
