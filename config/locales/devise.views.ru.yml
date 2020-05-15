@@ -95,16 +95,23 @@ ru:
     registrations:
       destroyed: До свидания! Ваша учетная запись удалена. Надеемся снова увидеть вас.
       edit:
+        email: "Электронная почта"
+        first_name: "Имя"
+        last_name: "Фамилия"
         are_you_sure: Вы уверены?
         cancel_my_account: Удалить учетную запись
         currently_waiting_confirmation_for_email: 'Ожидается подтверждение адреса E-mail: %{email}'
         leave_blank_if_you_don_t_want_to_change_it: оставьте поле пустым, если не хотите его менять
-        title: Редактировать %{resource}
+        title: "Редактировать учетную запись пользователя"
         unhappy: Разочарованы
         update: Обновить
         we_need_your_current_password_to_confirm_your_changes: введите текущий пароль для подтверждения изменений
       new:
-        sign_up: Регистрация
+        sign_up: "Стать Гуру"
+        email: "Электронная почта"
+        first_name: "Имя"
+        last_name: "Фамилия"
+        submit: "Создать аккаунт"
       signed_up: Добро пожаловать! Вы успешно зарегистрировались.
       signed_up_but_inactive: Вы успешно зарегистрированы. Однако, вы не можете войти в систему, потому что ваша учетная запись не активирована.
       signed_up_but_locked: Вы успешно зарегистрированы. Однако, вы не можете войти в систему, потому что ваша учетная запись заблокирована.
@@ -115,7 +122,8 @@ ru:
     sessions:
       already_signed_out: Выход из системы уже выполнен.
       new:
-        sign_in: Войти
+        sign_in: "Войти в Галактику Гуру"
+        submit: "Войти"
       signed_in: Вход в систему выполнен.
       signed_out: Выход из системы выполнен.
     shared:

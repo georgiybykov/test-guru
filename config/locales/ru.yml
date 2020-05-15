@@ -1,2 +1,10 @@
 ru:
-  welcome: "Добро пожаловать!"
+  hello: "Добро пожаловать!"
+
+  tests:
+    index:
+      header: "Доступные Тесты"
+      title: "Название"
+      level: "Уровень"
+      questions: "Вопросы"
+      actions: "Actions"
