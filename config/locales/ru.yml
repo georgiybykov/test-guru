@@ -11,11 +11,29 @@ ru:
     test:
       start_button: "Старт"
 
+  test_passages:
+      show:
+        header: "Прохождение Теста: %{test_title}"
+
   helpers:
     submit:
       test:
         create: "Создать Тест"
         update: "Обновить Тест"
+    label:
+      test:
+        title: "Название"
+        level: "Уровень"
+        category_id: "Категория:"
+        author_id: "Автор:"
+
+  shared:
+    errors:
+      header:
+        few: "Обнаружено %{count} ошибки:"
+        many: "Обнаружено %{count} ошибок:"
+        one: "Обнаружена %{count} ошибка:"
+        other: "Обнаружено %{count} ошибки:"
 
   admin:
     tests:
@@ -32,10 +50,6 @@ ru:
         level: "Уровень"
         questions: "Вопросы"
         actions: "Действия"
-      test:
-        show_test_button: "Показать"
-        edit_test_button: "Изменить"
-        delete_test_button: "Удалить"
       show:
         header: "Тест: %{title}"
         level: "Уровень"
@@ -50,8 +64,7 @@ ru:
       edit:
         header: "Редактировать Тест: %{title}"
         back_tests_button: "Назад"
-      form:
-        title: "Название"
-        level: "Уровень"
-        category: "Категория: "
-        author: "Автор: "
+      test:
+        show_test_button: "Показать"
+        edit_test_button: "Изменить"
+        delete_test_button: "Удалить"

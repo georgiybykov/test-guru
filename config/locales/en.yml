@@ -11,11 +11,27 @@ en:
     test:
       start_button: "Start"
 
+  test_passages:
+    show:
+      header: "Passing the Test: %{test_title}"
+
   helpers:
     submit:
       test:
         create: "Create Test"
         update: "Update Test"
+    label:
+      test:
+        title: "Title"
+        level: "Level"
+        category_id: "Category:"
+        author_id: "Author:"
+
+  shared:
+    errors:
+      header:
+        one: "%{count} error detected:"
+        other: "%{count} errors detected:"
 
   admin:
     tests:
@@ -32,10 +48,6 @@ en:
         level: "Level"
         questions: "Questions"
         actions: "Actions"
-      test:
-        show_test_button: "Show"
-        edit_test_button: "Edit"
-        delete_test_button: "Delete"
       show:
         header: "Test: %{title}"
         level: "Level"
@@ -50,8 +62,7 @@ en:
       edit:
         header: "Edit Test: %{title}"
         back_tests_button: "Back"
-      form:
-        title: "Title"
-        level: "Level"
-        category: "Category: "
-        author: "Author: "
+      test:
+        show_test_button: "Show"
+        edit_test_button: "Edit"
+        delete_test_button: "Delete"
