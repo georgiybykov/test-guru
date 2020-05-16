@@ -42,6 +42,10 @@ en:
       header:
         one: "%{count} error detected:"
         other: "%{count} errors detected:"
+    header:
+      greeting: "Hello, "
+      main_page: "Test Guru"
+      log_out: "Log out"
 
   tests_mailer:
     completed_test:
