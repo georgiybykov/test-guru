@@ -35,6 +35,10 @@ ru:
         one: "Обнаружена %{count} ошибка:"
         other: "Обнаружено %{count} ошибки:"
 
+  tests_mailer:
+    completed_test:
+      subject: "Вы только что прошли тест на портале TestGuru!"
+
   admin:
     tests:
       create:
