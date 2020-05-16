@@ -1,9 +1,0 @@
-ru:
-  activerecord:
-    models:
-      test: "Test"
-    attributes:
-      test:
-        title: "Title"
-    errors:
-      blank: "can not be blank"
