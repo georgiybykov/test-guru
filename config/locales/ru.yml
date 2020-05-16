@@ -80,3 +80,8 @@ ru:
         show_test_button: "Показать"
         edit_test_button: "Изменить"
         delete_test_button: "Удалить"
+    nav:
+      panel: "Панель администратора TestGuru"
+      greeting: "Привет, "
+      main_page: "Главная страница"
+      log_out: "Выйти"

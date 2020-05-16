@@ -3,7 +3,7 @@ module TestPassagesHelper
     test_passage.success? ? t('.success') : t('.failure')
   end
 
-  def success_failure(test_passage)
-    test_passage.success? ? 'success' : 'failure'
+  def green_red(test_passage)
+    test_passage.success? ? 'greed' : 'red'
   end
 end

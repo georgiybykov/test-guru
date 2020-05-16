@@ -1,8 +1,8 @@
 .passage-result {
-  &.success {
+  &.green {
     color: green;
   }
-  &.failure {
+  &.red {
     color: red;
   }
 }

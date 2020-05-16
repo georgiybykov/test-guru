@@ -78,3 +78,9 @@ en:
         show_test_button: "Show"
         edit_test_button: "Edit"
         delete_test_button: "Delete"
+    nav:
+      panel: "TestGuru Admin Panel"
+      greeting: "Hello, "
+      main_page: "Main Page"
+      log_out: "Log out"
+
