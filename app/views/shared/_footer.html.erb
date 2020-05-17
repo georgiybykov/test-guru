@@ -1,8 +1,7 @@
-<footer style=" line-height: 0.4em; width: 100%; text-align: center; position: absolute; left: 0; bottom: 0;">
-  <p>Made by: Georgiy B. GitHub: <%= github_url('georgiybykov', 'test-guru') %></p>
-  <%= current_year %>
+<footer style=" line-height: 0.8em; width: 100%; text-align: center; position: absolute; left: 0; bottom: 0;">
+  <p><%= t('.author') %> <%= github_url('georgiybykov', 'test-guru') %> | <%= current_year %></p>
   <p>
-    About project: This project is about creating tests and pass through other ones.
-    <%= link_to "Training project from Thinknetica Web-Development Course", 'https://thinknetica.com', target: '_blank' %>
+    <%= t('.about') %> |
+    <%= link_to t('.project_link'), 'https://thinknetica.com', target: '_blank' %>
   </p>
 </footer>

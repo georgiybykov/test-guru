@@ -48,6 +48,10 @@ ru:
       greeting: "Привет, "
       main_page: "Главная страница"
       log_out: "Выход"
+    footer:
+      author: "Автор: Георгий Б. | GitHub: "
+      about: "О проекте: Проект для создания и прохождения тестов."
+      project_link: "Тренировочный проект от школы Thinknetica Web-Development"
 
   tests_mailer:
     completed_test:

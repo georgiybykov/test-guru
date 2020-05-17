@@ -46,6 +46,10 @@ en:
       greeting: "Hello, "
       main_page: "Test Guru"
       log_out: "Log out"
+    footer:
+      author: "Made by: Georgiy B. | GitHub: "
+      about: "About project: This project is about creating tests and pass through other ones."
+      project_link: "Training project from Thinknetica Web-Development Course"
 
   tests_mailer:
     completed_test:
