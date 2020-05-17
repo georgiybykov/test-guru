@@ -11,7 +11,7 @@ class Users::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
   def create
     super
-    flash[:notice] = "Hello, #{current_user.first_name || current_user.email}!"
+    flash[:notice] = t('.hello', greeting: name_or_email)
   end
 
   # DELETE /resource/sign_out
@@ -25,4 +25,10 @@ class Users::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+
+  private
+
+  def name_or_email
+    current_user.first_name || current_user.email
+  end
 end

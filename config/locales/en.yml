@@ -28,6 +28,9 @@ en:
       test:
         create: "Create Test"
         update: "Update Test"
+      question:
+        crete: "Create Question"
+        update: "Update Question"
     label:
       test:
         title: "Title"
@@ -54,3 +57,8 @@ en:
   tests_mailer:
     completed_test:
       subject: "You just completed the TestGuru test!"
+
+  users:
+    sessions:
+      create:
+        hello: "Hello, %{greeting}!"

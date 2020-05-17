@@ -28,6 +28,9 @@ ru:
       test:
         create: "Создать Тест"
         update: "Обновить Тест"
+      question:
+        crete: "Создать Вопрос"
+        update: "Обновить Вопрос"
     label:
       test:
         title: "Название"
@@ -56,3 +59,8 @@ ru:
   tests_mailer:
     completed_test:
       subject: "Вы только что прошли тест на портале TestGuru!"
+
+  users:
+    sessions:
+      create:
+        hello: "Привет, %{greeting}!"
