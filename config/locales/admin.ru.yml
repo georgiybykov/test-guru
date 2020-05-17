@@ -34,6 +34,7 @@ ru:
         delete_test_button: "Удалить"
         are_you_sure: "Вы уверены?"
         back_tests_button: "Назад"
+        not_authorized: "Вы не авторизированы для просмотра этой страницы."
       new:
         header: "Создать Новый Тест"
         back_tests_button: "Назад"
@@ -61,6 +62,7 @@ ru:
         delete_question_button: "Удалить"
         are_you_sure: "Вы уверены?"
         back_to_qstn_test_button: "Назад"
+        not_authorized: "Вы не авторизированы для просмотра этой страницы."
       new:
         header: "Создать Новый Вопрос для Теста: %{test_title}"
         back_tests_button: "Назад"
@@ -87,6 +89,7 @@ ru:
         correct_label: "Верно:"
         edit_answer_button: "Изменить Ответ"
         back_to_question: "Назад"
+        not_authorized: "Вы не авторизированы для просмотра этой страницы."
       new:
         header: "Новый Ответ"
         back_to_question: "Назад"

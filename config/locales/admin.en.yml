@@ -34,6 +34,7 @@ en:
         delete_test_button: "Delete"
         are_you_sure: "Are you sure?"
         back_tests_button: "Back"
+        not_authorized: "You are not authorized to view this page."
       new:
         header: "Create New Test"
         back_tests_button: "Back"
@@ -61,6 +62,7 @@ en:
         delete_question_button: "Delete"
         are_you_sure: "Are you sure?"
         back_to_qstn_test_button: "Back"
+        not_authorized: "You are not authorized to view this page."
       new:
         header: "Create New Question for Test: %{test_title}"
         back_tests_button: "Back"
@@ -87,6 +89,7 @@ en:
         correct_label: "Correct: "
         edit_answer_button: "Edit Answer"
         back_to_question: "Back"
+        not_authorized: "You are not authorized to view this page."
       new:
         header: "New Answer"
         back_to_question: "Back"
