@@ -31,12 +31,20 @@ ru:
       question:
         crete: "Создать Вопрос"
         update: "Обновить Вопрос"
+      answer:
+        crete: "Создать Ответ"
+        update: "Обновить Ответ"
     label:
       test:
         title: "Название"
         level: "Уровень"
         category_id: "Категория:"
         author_id: "Автор:"
+      question:
+        body: "Текст Вопроса"
+      answer:
+        body: "Текст Ответа"
+        correct: "Верно?"
     select:
       prompt: "Выберите категорию"
 

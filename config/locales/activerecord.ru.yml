@@ -7,15 +7,15 @@ ru:
       user: "Пользователь"
       admin: "Администратор"
       category: "Категория"
-    attributes:
-      test:
-        title: "Название"
-        author: "Автор"
-      question:
-        body: "Текст вопроса"
-      answer:
-        body: "Текст ответа"
-        correct: "Верно?"
+    # attributes:
+    #   test:
+    #     title: "Название"
+    #     author: "Автор"
+    #   question:
+    #     body: "Текст вопроса"
+    #   answer:
+    #     body: "Текст ответа"
+    #     correct: "Верно?"
       user:
         first_name: "Имя"
         last_name: "Фамилия"

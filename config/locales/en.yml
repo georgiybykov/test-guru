@@ -31,12 +31,20 @@ en:
       question:
         crete: "Create Question"
         update: "Update Question"
+      answer:
+        crete: "Create Answer"
+        update: "Update Answer"
     label:
       test:
         title: "Title"
         level: "Level"
         category_id: "Category:"
         author_id: "Author:"
+      question:
+        body: "Question text"
+      answer:
+        body: "Answer text"
+        correct: "Correct?"
     select:
       prompt: "Select a category"
 

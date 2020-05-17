@@ -76,5 +76,20 @@ en:
         answer_updated: "Answer was successfully updated!"
       destroy:
         answer_deleted: "Answer was successfully deleted!"
-
-
+      answer:
+        show_answer_button: "Show"
+        edit_answer_button: "Edit"
+        delete_answer_button: "Delete"
+        are_you_sure: "Are you sure?"
+      show:
+        header: "Question"
+        answer_label: "Answer:"
+        correct_label: "Correct: "
+        edit_answer_button: "Edit Answer"
+        back_to_question: "Back"
+      new:
+        header: "New Answer"
+        back_to_question: "Back"
+      edit:
+        header: "Editing Answer"
+        back_to_question: "Back"
