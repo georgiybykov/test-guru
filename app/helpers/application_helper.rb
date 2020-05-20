@@ -1,4 +1,6 @@
 module ApplicationHelper
+  FLASH_MESSAGE_STYLE = { notice: 'success', alert: 'danger' }
+
   def current_year
     Date.current.year
   end
