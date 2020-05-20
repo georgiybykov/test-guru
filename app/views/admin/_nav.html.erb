@@ -1,4 +1,4 @@
-<nav class="navbar navbar-light bg-light">
+<nav class="navbar navbar-light bg-primary">
   <%= link_to t('.project_title'), root_path, class: 'navbar-brand' %>
 
   <span class="navbar-text">
@@ -6,8 +6,8 @@
       <%= t('.greeting') %><b><%= current_user.first_name || current_user.email %></b>! |
       <%= link_to t('.log_out'), destroy_user_session_path, method: :delete %>
     <% else %>
-      <%= link_to t('.log_in'), new_user_session_path(resource_name) %>
-      <%= link_to t('.sign_up'), new_user_registration_path(resource_name) %>
+      <%= link_to t('.log_in'), new_session_path(@user) %> |
+      <%= link_to t('.sign_up'), new_registration_path(@user) %>
     <% end %>
   </span>
 </nav>
