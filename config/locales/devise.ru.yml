@@ -58,6 +58,9 @@ ru:
     sessions:
       new:
         sign_in: "Войти в Галактику Гуру"
+        enter_email: "Введите email"
+        enter_password: "Введите пароль"
+        remember_me: "Запомнить меня"
         enter: "Войти"
       signed_in: "Вход в систему выполнен."
       signed_out: "Выход из системы выполнен."
