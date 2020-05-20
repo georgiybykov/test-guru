@@ -9,6 +9,10 @@ module ApplicationHelper
     link_to repo, "https://github.com/#{author}/#{repo}", target: '_blank'
   end
 
+  def greeting_in_header
+    current_user.first_name || current_user.email
+  end
+
   # def show_flash_message(type)
   #   content_tag :p, flash[type], class: "flash #{type.to_s}" if flash[type]
   # end

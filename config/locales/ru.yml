@@ -57,6 +57,7 @@ ru:
         other: "Обнаружено %{count} ошибки:"
     header:
       project_title: "TestGuru"
+      admin_panel: "Панель Администратора"
       greeting: "Привет, "
       log_in: "Вход"
       log_out: "Выход"

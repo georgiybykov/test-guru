@@ -2,6 +2,7 @@ en:
   admin:
     nav:
       project_title: "TestGuru"
+      admin_panel: "Admin Panel"
       greeting: "Hello, "
       log_in: "Log in"
       log_out: "Log out"
