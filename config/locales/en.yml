@@ -54,9 +54,11 @@ en:
         one: "%{count} error detected:"
         other: "%{count} errors detected:"
     header:
+      project_title: "TestGuru"
       greeting: "Hello, "
-      main_page: "Test Guru"
+      log_in: "Log in"
       log_out: "Log out"
+      sign_up: "Sign up"
     footer:
       author: "Made by: Georgiy B. | GitHub: "
       about: "About project: This project is about creating tests and pass through other ones."

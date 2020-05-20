@@ -56,9 +56,11 @@ ru:
         one: "Обнаружена %{count} ошибка:"
         other: "Обнаружено %{count} ошибки:"
     header:
+      project_title: "TestGuru"
       greeting: "Привет, "
-      main_page: "Главная страница"
+      log_in: "Вход"
       log_out: "Выход"
+      sign_up: "Регистрация"
     footer:
       author: "Автор: Георгий Б. | GitHub: "
       about: "О проекте: Проект для создания и прохождения тестов."

@@ -1,10 +1,11 @@
 en:
   admin:
     nav:
-      panel: "TestGuru Admin Panel"
+      project_title: "TestGuru"
       greeting: "Hello, "
-      main_page: "Main Page"
+      log_in: "Log in"
       log_out: "Log out"
+      sign_up: "Sign up"
     tests:
       create:
         test_created: "Test was successfully created!"

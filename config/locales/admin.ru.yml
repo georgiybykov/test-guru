@@ -1,10 +1,11 @@
 ru:
  admin:
     nav:
-      panel: "Панель администратора TestGuru"
+      project_title: "TestGuru"
       greeting: "Привет, "
-      main_page: "Главная страница"
+      log_in: "Вход"
       log_out: "Выход"
+      sign_up: "Регистрация"
     tests:
       create:
         test_created: "Тест был успешно создан!"
