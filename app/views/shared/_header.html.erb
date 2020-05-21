@@ -1,20 +1,20 @@
 <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
   <span class="navbar-text">
     <% if current_user.try!(:admin?) %>
-      <%= link_to t('.project_title'), root_path, class: 'navbar-brand' %> |
-      <%= link_to t('.admin_panel'), admin_tests_path, class: 'navbar-brand' %>
+      <%= link_to t('nav.project_title'), root_path, class: 'navbar-brand' %> |
+      <%= link_to t('nav.admin_panel'), admin_tests_path, class: 'navbar-brand' %>
     <% else %>
-      <%= link_to t('.project_title'), root_path, class: 'navbar-brand' %>
+      <%= link_to t('nav.project_title'), root_path, class: 'navbar-brand' %>
     <% end %>
   </span>
 
   <span class="navbar-text">
     <% if user_signed_in? %>
-      <%= t('.greeting') %><b><%= greeting_in_header %></b>! |
-      <%= link_to t('.log_out'), destroy_user_session_path, method: :delete %>
+      <%= t('nav.greeting') %><b><%= greeting_in_header %></b>! |
+      <%= link_to t('links.log_out'), destroy_user_session_path, method: :delete %>
     <% else %>
-      <%= link_to t('.log_in'), new_user_session_path %> |
-      <%= link_to t('.sign_up'), new_user_registration_path %>
+      <%= link_to t('links.log_in'), new_user_session_path %> |
+      <%= link_to t('links.sign_up'), new_user_registration_path %>
     <% end %>
   </span>
 </nav>

@@ -1,6 +1,29 @@
 ru:
   hello: "Добро пожаловать!"
 
+  links:
+    show: "Показать"
+    edit: "Изменить"
+    delete: "Удалить"
+    are_you_sure: "Вы уверены?"
+    back: "Назад"
+    log_in: "Вход"
+    log_out: "Выход"
+    sign_up: "Регистрация"
+
+  nav:
+    project_title: "TestGuru"
+    admin_panel: "Панель Администратора"
+    greeting: "Привет, "
+
+  warnings:
+    not_authorized: "Вы не авторизированы для просмотра этой страницы."
+
+  users:
+    sessions:
+      create:
+        hello: "Привет, %{greeting}!"
+
   tests:
     index:
       header: "Доступные Тесты"
@@ -55,13 +78,6 @@ ru:
         many: "Обнаружено %{count} ошибок:"
         one: "Обнаружена %{count} ошибка:"
         other: "Обнаружено %{count} ошибки:"
-    header:
-      project_title: "TestGuru"
-      admin_panel: "Панель Администратора"
-      greeting: "Привет, "
-      log_in: "Вход"
-      log_out: "Выход"
-      sign_up: "Регистрация"
     footer:
       author: "Автор: Георгий Б. | GitHub: "
       about: "О проекте: Проект для создания и прохождения тестов."
@@ -70,8 +86,3 @@ ru:
   tests_mailer:
     completed_test:
       subject: "Вы только что прошли тест на портале TestGuru!"
-
-  users:
-    sessions:
-      create:
-        hello: "Привет, %{greeting}!"

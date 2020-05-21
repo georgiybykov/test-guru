@@ -4,14 +4,14 @@
     <td><%= test_level(test) %></td>
     <td><%= test.questions.count %></td>
 
-    <td><%= link_to t('.show_test_button'), admin_test_path(test), class: 'btn btn-primary' %></td>
-    <td><%= link_to t('.edit_test_button'), edit_admin_test_path(test), class: 'btn btn-primary' %></td>
+    <td><%= link_to t('links.show'), admin_test_path(test), class: 'btn btn-primary' %></td>
+    <td><%= link_to t('links.edit'), edit_admin_test_path(test), class: 'btn btn-primary' %></td>
 
     <td>
-      <%= link_to t('.delete_test_button'),
+      <%= link_to t('links.delete'),
                   admin_test_path(test),
                   method: :delete,
-                  data: { confirm: t('.are_you_sure') },
+                  data: { confirm: t('links.are_you_sure') },
                   class: 'btn btn-danger' %>
     </td>
   </tr>
