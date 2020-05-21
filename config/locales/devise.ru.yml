@@ -57,7 +57,10 @@ ru:
       updated_but_not_signed_in: "Ваш аккаунт успешно изменен, но так как ваш пароль изменился, нужно войти снова."
     sessions:
       new:
-        sign_in: "Войти в Галактику Гуру"
+        sign_in_page_header: "Войти в Галактику Гуру"
+        enter_email: "Введите email"
+        enter_password: "Введите пароль"
+        remember_me: "Запомнить меня"
         enter: "Войти"
       signed_in: "Вход в систему выполнен."
       signed_out: "Выход из системы выполнен."
