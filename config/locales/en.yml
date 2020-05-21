@@ -77,9 +77,9 @@ en:
         one: "%{count} error detected:"
         other: "%{count} errors detected:"
     footer:
-      author: "Made by: Georgiy B. | GitHub: "
-      about: "About project: This project is about creating tests and pass through other ones."
-      project_link: "Training project from Thinknetica Web-Development Course"
+      git_hub_repo: "GitHub: "
+      author: "Made by: Georgiy B."
+      project_link: "Training project from Thinknetica"
 
   tests_mailer:
     completed_test:

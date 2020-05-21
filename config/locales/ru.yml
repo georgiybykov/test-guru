@@ -79,9 +79,9 @@ ru:
         one: "Обнаружена %{count} ошибка:"
         other: "Обнаружено %{count} ошибки:"
     footer:
-      author: "Автор: Георгий Б. | GitHub: "
-      about: "О проекте: Проект для создания и прохождения тестов."
-      project_link: "Тренировочный проект от школы Thinknetica Web-Development"
+      git_hub_repo: "GitHub: "
+      author: "Автор: Георгий Б."
+      project_link: "Тренировочный проект от школы Thinknetica"
 
   tests_mailer:
     completed_test:
