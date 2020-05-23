@@ -18,7 +18,6 @@ class TestPassagesController < ApplicationController
   def result; end
 
   def gist
-    octokit = Octokit::Client.new(access_token: GitHubClient::ACCESS_TOKEN)
     result = GistQuestionService.new(@test_passage.current_question).call
 
     flash_options = if result.success?
