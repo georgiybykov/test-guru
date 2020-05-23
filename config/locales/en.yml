@@ -35,9 +35,13 @@ en:
       start_button: "Start"
 
   test_passages:
+    gist:
+      success: "Gist was successfully created!"
+      failure: "An error occurred while saving gist!"
     show:
       header: "Passing the Test: %{test_title}"
       number: "The Question %{current} of %{total}."
+      gist_question: "Gist Question"
       next_button: 'Next'
     result:
       header: "You have been completed the Test: "

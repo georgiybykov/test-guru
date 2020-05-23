@@ -35,9 +35,13 @@ ru:
       start_button: "Старт"
 
   test_passages:
+    gist:
+      success: 'Gist успешно создан!'
+      failure: 'Во время сохранения gist произошла ошибка!'
     show:
       header: "Прохождение Теста: %{test_title}"
       number: "Вопрос %{current} из %{total}."
+      gist_question: "Отправить в Gist"
       next_button: 'Следующий'
     result:
       header: "Вы прошли Тест: "

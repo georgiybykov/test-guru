@@ -295,7 +295,7 @@ DEPENDENCIES
   devise (~> 4.0)
   devise-i18n (~> 1.9.0)
   dotenv-rails
-  faraday
+  faraday (~> 1.0)
   jbuilder (~> 2.7)
   letter_opener
   listen (>= 3.0.5, < 3.2)
