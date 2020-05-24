@@ -18,16 +18,24 @@ class TestPassagesController < ApplicationController
   def result; end
 
   def gist
-    result = GistQuestionService.new(@test_passage.current_question).call
+    service = GistQuestionService.new(@test_passage.current_question)
+    result = service.call
 
-    flash_options = if result
-      { notice: t('.success') }
+    if result.html_url.present?
+      gist = Gist.create!(
+        question: @test_passage.current_question,
+        gist_url: result.html_url,
+        user: current_user
+        )
+
+      flash[:notice] = t('.success', url: gist.gist_url)
     else
-      { alert: t('.failure') }
+      flash[:alert] = t('.failure')
     end
 
-    redirect_to @test_passage, flash_options
+    redirect_to @test_passage
   end
+
   private
 
   def set_test_passage

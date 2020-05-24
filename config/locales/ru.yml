@@ -36,7 +36,7 @@ ru:
 
   test_passages:
     gist:
-      success: 'Gist успешно создан!'
+      success: 'Gist успешно создан! Перейти: %{url}'
       failure: 'Во время сохранения gist произошла ошибка!'
     show:
       header: "Прохождение Теста: %{test_title}"
