@@ -18,8 +18,7 @@ class TestPassagesController < ApplicationController
   def result; end
 
   def gist
-    service = GistQuestionService.new(@test_passage.current_question)
-    result = service.call
+    result = GistQuestionService.new(@test_passage.current_question).call
 
     if result.html_url.present?
       gist = Gist.create!(
