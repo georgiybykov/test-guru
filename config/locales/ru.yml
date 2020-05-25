@@ -10,6 +10,7 @@ ru:
     log_in: "Вход"
     log_out: "Выход"
     sign_up: "Регистрация"
+    gist: "Ваша сслыка на GitHub Gist"
 
   nav:
     project_title: "TestGuru"
@@ -93,4 +94,4 @@ ru:
 
   services:
     gist_question_service:
-      description:  "Вопрос из %{title} Теста из ресурса TestGuru"
+      description:  "Вопрос из %{test_title} Теста из ресурса TestGuru"
