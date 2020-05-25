@@ -1,4 +1,12 @@
 class GistQuestionService
+  Result = Struct.new(:service_result) do
+    delegate :html_url, to: :service_result, allow_nil: true # allow_nil -> если прилетит nil, то не вызовет ошибку, а передаст nil далее
+
+    def success?
+      service_result.html_url.present?
+    end
+  end
+
   def initialize(question, client = default_client)
     @question = question
     @test = @question.test
@@ -6,7 +14,7 @@ class GistQuestionService
   end
 
   def call
-    @client.create_gist(gist_params.to_json)
+    Result.new(@client.create_gist(gist_params.to_json))
   end
 
   private
