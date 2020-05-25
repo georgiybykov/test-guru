@@ -3,7 +3,7 @@ class GistQuestionService
     delegate :html_url, to: :service_result, allow_nil: true # allow_nil -> если прилетит nil, то не вызовет ошибку, а передаст nil далее
 
     def success?
-      service_result.html_url.present?
+      service_result && service_result.html_url.present?
     end
   end
 
