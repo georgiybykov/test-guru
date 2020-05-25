@@ -37,10 +37,20 @@ gem 'devise-i18n', '~> 1.9.0'
 # AUTH
 gem 'devise', '~> 4.0'
 
+# NETWORKING: HTTP/REST API client library
+gem 'faraday', '~> 1.0'
+
+# GitHub Octokit: Ruby toolkit for the GitHub API
+gem "octokit", '~> 4.0'
+
 group :development, :test do
+  # SHIM TO LOAD ENVIRONMENT VARIABLES
+  gem 'dotenv-rails'
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rubocop-rails'
+  gem 'pry-byebug'
 end
 
 group :development do
