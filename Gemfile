@@ -41,7 +41,10 @@ gem 'devise', '~> 4.0'
 gem 'faraday', '~> 1.0'
 
 # GitHub Octokit: Ruby toolkit for the GitHub API
-gem "octokit", '~> 4.0'
+gem 'octokit', '~> 4.0'
+
+# Rails helper for including svg octicons in apps
+gem 'octicons_helper'
 
 group :development, :test do
   # SHIM TO LOAD ENVIRONMENT VARIABLES
