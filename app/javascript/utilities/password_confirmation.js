@@ -7,32 +7,32 @@ document.addEventListener('turbolinks:load', function() {
 
 function checkPassword() {
   var password = document.getElementById('user_password')
-  var password_confirm = document.getElementById('user_password_confirmation')
-  var passwords_match = document.querySelector('.octicon-check').classList
-  var passwords_not_match = document.querySelector('.octicon-x').classList
+  var passwordConfirm = document.getElementById('user_password_confirmation')
+  var passwordsMatch = document.querySelector('.octicon-check').classList
+  var passwordsNotMatch = document.querySelector('.octicon-x').classList
 
 
 
-  if (password_confirm.value === '') {
+  if (passwordConfirm.value === '') {
     password.classList.remove('border-green')
-    password_confirm.classList.remove('border-green')
+    passwordConfirm.classList.remove('border-green')
     password.classList.remove('border-red')
-    password_confirm.classList.remove('border-red')
-    passwords_match.add('hide')
-    passwords_not_match.add('hide')
-  } else if (password.value === password_confirm.value) {
+    passwordConfirm.classList.remove('border-red')
+    passwordsMatch.add('hide')
+    passwordsNotMatch.add('hide')
+  } else if (password.value === passwordConfirm.value) {
     password.classList.add('border-green')
-    password_confirm.classList.add('border-green')
+    passwordConfirm.classList.add('border-green')
     password.classList.remove('border-red')
-    password_confirm.classList.remove('border-red')
-    passwords_match.remove('hide')
-    passwords_not_match.add('hide')
+    passwordConfirm.classList.remove('border-red')
+    passwordsMatch.remove('hide')
+    passwordsNotMatch.add('hide')
   } else {
     password.classList.add('border-red')
-    password_confirm.classList.add('border-red')
+    passwordConfirm.classList.add('border-red')
     password.classList.remove('border-green')
-    password_confirm.classList.remove('border-green')
-    passwords_match.add('hide')
-    passwords_not_match.remove('hide')
+    passwordConfirm.classList.remove('border-green')
+    passwordsMatch.add('hide')
+    passwordsNotMatch.remove('hide')
   }
 }
