@@ -8,31 +8,73 @@ document.addEventListener('turbolinks:load', function() {
 function checkPassword() {
   var password = document.getElementById('user_password')
   var passwordConfirm = document.getElementById('user_password_confirmation')
-  var passwordsMatch = document.querySelector('.octicon-check').classList
-  var passwordsNotMatch = document.querySelector('.octicon-x').classList
-
-
+  var successMatchElArr = document.querySelectorAll('.octicon-check')
+  var failureMatchElArr = document.querySelectorAll('.octicon-x')
+  var passwordsArray = [password, passwordConfirm]
 
   if (passwordConfirm.value === '') {
-    password.classList.remove('border-green')
-    passwordConfirm.classList.remove('border-green')
-    password.classList.remove('border-red')
-    passwordConfirm.classList.remove('border-red')
-    passwordsMatch.add('hide')
-    passwordsNotMatch.add('hide')
+    passwordsArray.forEach(el => {
+      el.classList && el.classList.remove('border-green')
+      el.classList && el.classList.remove('border-red')
+    })
+    // password.classList.remove('border-green')
+    // passwordConfirm.classList.remove('border-green')
+    // password.classList.remove('border-red')
+    // passwordConfirm.classList.remove('border-red')
+
+    successMatchElArr.forEach(element => {
+      element.classList && element.classList.add('hide')
+    })
+
+    failureMatchElArr.forEach(element => {
+      element.classList && element.classList.add('hide')
+    })
   } else if (password.value === passwordConfirm.value) {
-    password.classList.add('border-green')
-    passwordConfirm.classList.add('border-green')
-    password.classList.remove('border-red')
-    passwordConfirm.classList.remove('border-red')
-    passwordsMatch.remove('hide')
-    passwordsNotMatch.add('hide')
+    passwordsArray.forEach(el => {
+      el.classList && el.classList.add('border-green')
+      el.classList && el.classList.remove('border-red')
+    })
+    // password.classList.add('border-green')
+    // passwordConfirm.classList.add('border-green')
+    // password.classList.remove('border-red')
+    // passwordConfirm.classList.remove('border-red')
+
+    successMatchElArr.forEach(element => {
+      element.classList && element.classList.remove('hide')
+    })
+
+    failureMatchElArr.forEach(element => {
+      element.classList && element.classList.add('hide')
+    })
   } else {
-    password.classList.add('border-red')
-    passwordConfirm.classList.add('border-red')
-    password.classList.remove('border-green')
-    passwordConfirm.classList.remove('border-green')
-    passwordsMatch.add('hide')
-    passwordsNotMatch.remove('hide')
+    passwordsArray.forEach(el => {
+      el.classList && el.classList.remove('border-green')
+      el.classList && el.classList.add('border-red')
+    })
+    // password.classList.add('border-red')
+    // passwordConfirm.classList.add('border-red')
+    // password.classList.remove('border-green')
+    // passwordConfirm.classList.remove('border-green')
+
+    successMatchElArr.forEach(element => {
+      element.classList && element.classList.add('hide')
+    })
+
+    failureMatchElArr.forEach(element => {
+      element.classList && element.classList.remove('hide')
+    })
   }
 }
+
+
+// var elements = document.querySelectorAll('.octicon-check')
+// elements = elements.map(el => { element: el, classEl: 'hide' })
+
+// function removeClassListByElement(elements) {
+//   elements.forEach(curr => {
+//     var element = curr.element
+//     var classEl = curr.classEl
+
+//     element.classList.remove(classEl)
+//   })
+// }
