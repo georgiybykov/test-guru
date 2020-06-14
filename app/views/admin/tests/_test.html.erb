@@ -1,14 +1,24 @@
 <tbody>
   <tr>
     <td class="align-middle font-weight-bold">
-      <%= test.title %>
+      <%= content_tag :span, test.title, class: 'test-title', data: { test_id: test.id } %>
       <%= render 'form_inline', test: test == @test ? @test : test %>
     </td>
     <td class="align-middle"><%= test_level(test) %></td>
     <td class="align-middle"><%= test.questions.count %></td>
 
-    <td class="align-middle"><%= link_to t('links.show'), admin_test_path(test), class: 'btn btn-primary' %></td>
-    <td class="align-middle"><%= link_to t('links.edit'), edit_admin_test_path(test), class: 'btn btn-primary' %></td>
+    <td class="align-middle">
+      <%= link_to t('links.show'),
+                  admin_test_path(test),
+                  class: 'btn btn-primary' %>
+    </td>
+
+    <td class="align-middle">
+      <%= link_to t('links.edit'),
+                  edit_admin_test_path(test),
+                  data: { test_id: test.id },
+                  class: 'btn btn-primary form-inline-link' %>
+    </td>
 
     <td class="align-middle">
       <%= link_to t('links.delete'),
