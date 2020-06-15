@@ -167,9 +167,9 @@ GEM
       byebug (~> 11.0)
       pry (~> 0.13.0)
     public_suffix (4.0.3)
-    puma (4.3.3)
+    puma (4.3.5)
       nio4r (~> 2.0)
-    puma (4.3.3-java)
+    puma (4.3.5-java)
       nio4r (~> 2.0)
     rack (2.2.2)
     rack-proxy (0.6.5)
@@ -321,7 +321,7 @@ DEPENDENCIES
   octokit (~> 4.0)
   pg (~> 1.2.3)
   pry-byebug
-  puma (~> 4.1)
+  puma (~> 4.3)
   rails (~> 6.0.2, >= 6.0.2.2)
   rails-i18n (~> 6.0.0)
   rubocop-rails
