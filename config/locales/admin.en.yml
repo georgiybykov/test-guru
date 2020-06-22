@@ -66,3 +66,6 @@ en:
         gist_question: "The Question from the Test"
         gist_link: "Link to GitHub Gist"
         gist_author: "The Author of Gist"
+        gist_action: "Action"
+      destroy:
+        gist_deleted: "Gist was successfully deleted!"

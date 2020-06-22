@@ -66,3 +66,6 @@ ru:
           gist_question: "Вопрос из Теста"
           gist_link: "Ссылка на GitHub Gist"
           gist_author: "Автор Gist"
+          gist_action: "Действие"
+      destroy:
+        gist_deleted: "Gist был успешно удален!"
