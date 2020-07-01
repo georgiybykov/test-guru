@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TestPassage < ApplicationRecord
   belongs_to :test
   belongs_to :user
@@ -38,10 +40,10 @@ class TestPassage < ApplicationRecord
 
   def before_validation_set_next_question
     self.current_question = if new_record?
-      test.questions.order(:id).first if test.present?
-    else
-      test.questions.order(:id).where('id > ?', current_question.id).first
-    end
+                              test.questions.order(:id).first if test.present?
+                            else
+                              test.questions.order(:id).where('id > ?', current_question.id).first
+                            end
   end
 
   def correct_answer?(answer_ids)

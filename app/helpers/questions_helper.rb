@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module QuestionsHelper
   # QUESTION_ACTION = { edit: 'Edit Question in Test: ', create: 'Create New Question for Test: ' }.freeze
 

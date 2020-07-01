@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 module ApplicationHelper
-  FLASH_MESSAGE_STYLE = { notice: 'success', alert: 'danger' }
+  FLASH_MESSAGE_STYLE = { notice: 'success', alert: 'danger' }.freeze
 
   def current_year
     Date.current.year

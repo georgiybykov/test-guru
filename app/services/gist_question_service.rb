@@ -1,6 +1,9 @@
+# frozen_string_literal: true
+
 class GistQuestionService
   Result = Struct.new(:service_result) do
-    delegate :html_url, to: :service_result, allow_nil: true # allow_nil -> если прилетит nil, то не вызовет ошибку, а передаст nil далее
+    # allow_nil -> if it gets <nil>, there will not be an error, just will send <nil> futher
+    delegate :html_url, to: :service_result, allow_nil: true
 
     def success?
       service_result&.html_url.present?
