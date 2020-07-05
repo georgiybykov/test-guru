@@ -64,8 +64,9 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'lovely-arches-92588.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    adress:                              'smtp.gmail.com',
-    port:                                 587,
+    adress:                              'smtp.mail.ru',
+    port:                                 465,
+    domain:                              'lovely-arches-92588.herokuapp.com',
     user_name:                            ENV['SMTP_USERNAME'],
     password:                             ENV['SMTP_PASSWORD'],
     authentication:                       'plain',

@@ -9,16 +9,17 @@ categories = Category.create!([
                               ])
 
 users = User.create!([
+                       { email: 'dev.projects@mail.ru', type: 'Admin', first_name: 'True', last_name: 'Admin', password: 'checkmyproject', password_confirmation: 'checkmyproject' },
+                       { email: 'admin1@email.com', type: 'Admin', first_name: 'adminname1', last_name: 'LosSantos', password: 'adminpassword1', password_confirmation: 'adminpassword1' },
+                       { email: 'admin2@email.com', type: 'Admin', first_name: 'adminname2', last_name: 'SantosLos', password: 'adminpassword2', password_confirmation: 'adminpassword2' },
+                       { email: 'admin3@email.com', type: 'Admin', first_name: 'adminname3', last_name: 'Santos', password: 'adminpassword3', password_confirmation: 'adminpassword3' },
                        { email: 'test@email.com', password: 'testpassword', password_confirmation: 'testpassword' },
                        { email: 'test2@email.com', password: 'testpassword2', password_confirmation: 'testpassword2' },
                        { email: 'test3@email.com', password: 'testpassword3', password_confirmation: 'testpassword3' },
                        { email: 'test4@email.com', password: 'testpassword4', password_confirmation: 'testpassword4' },
                        { email: 'test5@email.com', password: 'testpassword5', password_confirmation: 'testpassword5' },
                        { email: 'test6@email.com', password: 'testpassword6', password_confirmation: 'testpassword6' },
-                       { email: 'test7@email.com', password: 'testpassword7', password_confirmation: 'testpassword7' },
-                       { email: 'admin1@email.com', type: 'Admin', first_name: 'adminname1', last_name: 'LosSantos', password: 'adminpassword1', password_confirmation: 'adminpassword1' },
-                       { email: 'admin2@email.com', type: 'Admin', first_name: 'adminname2', last_name: 'SantosLos', password: 'adminpassword2', password_confirmation: 'adminpassword2' },
-                       { email: 'admin3@email.com', type: 'Admin', first_name: 'adminname3', last_name: 'Santos', password: 'adminpassword3', password_confirmation: 'adminpassword3' }
+                       { email: 'test7@email.com', password: 'testpassword7', password_confirmation: 'testpassword7' }
                      ])
 
 tests = Test.create!([
