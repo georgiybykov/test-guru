@@ -9,36 +9,26 @@ categories = Category.create!([
                               ])
 
 users = User.create!([
-                       { email: 'dev.projects@mail.ru', type: 'Admin', first_name: 'True', last_name: 'Admin', password: 'checkmyproject', password_confirmation: 'checkmyproject' },
-                       { email: 'admin1@email.com', type: 'Admin', first_name: 'adminname1', last_name: 'LosSantos', password: 'adminpassword1', password_confirmation: 'adminpassword1' },
-                       { email: 'admin2@email.com', type: 'Admin', first_name: 'adminname2', last_name: 'SantosLos', password: 'adminpassword2', password_confirmation: 'adminpassword2' },
-                       { email: 'admin3@email.com', type: 'Admin', first_name: 'adminname3', last_name: 'Santos', password: 'adminpassword3', password_confirmation: 'adminpassword3' },
-                       { email: 'test@email.com', password: 'testpassword', password_confirmation: 'testpassword' },
-                       { email: 'test2@email.com', password: 'testpassword2', password_confirmation: 'testpassword2' },
-                       { email: 'test3@email.com', password: 'testpassword3', password_confirmation: 'testpassword3' },
-                       { email: 'test4@email.com', password: 'testpassword4', password_confirmation: 'testpassword4' },
-                       { email: 'test5@email.com', password: 'testpassword5', password_confirmation: 'testpassword5' },
-                       { email: 'test6@email.com', password: 'testpassword6', password_confirmation: 'testpassword6' },
-                       { email: 'test7@email.com', password: 'testpassword7', password_confirmation: 'testpassword7' }
+                       { email: 'dev.projects@mail.ru', type: 'Admin', first_name: 'True', last_name: 'Admin', password: 'checkmyproject', password_confirmation: 'checkmyproject' }
                      ])
 
 tests = Test.create!([
-                       { title: 'Beginner', level: 0, presence: true, category: categories[0], author: users[7] },
-                       { title: 'Middle', level: 1, presence: true, category: categories[1], author: users[8] },
-                       { title: 'Advanced', level: 2, presence: true, category: categories[2], author: users[9] },
-                       { title: 'Special', level: 3, presence: true, category: categories[3], author: users[8] },
-                       { title: 'Ruby Test', level: 4, presence: true, category: categories[4], author: users[9] },
-                       { title: 'Work Flow', level: 5, presence: true, category: categories[5], author: users[7] },
-                       { title: 'Git WorkFlow', level: 7, presence: true, category: categories[6], author: users[7] }
+                       { title: 'Beginner', level: 0, presence: true, category: categories[0], author: users[0] },
+                       { title: 'Middle', level: 1, presence: true, category: categories[1], author: users[0] },
+                       { title: 'Advanced', level: 2, presence: true, category: categories[2], author: users[0] },
+                       { title: 'Special', level: 3, presence: true, category: categories[3], author: users[0] },
+                       { title: 'Ruby Test', level: 4, presence: true, category: categories[4], author: users[0] },
+                       { title: 'Work Flow', level: 5, presence: true, category: categories[5], author: users[0] },
+                       { title: 'Git WorkFlow', level: 7, presence: true, category: categories[6], author: users[0] }
                      ])
 
 TestPassage.create!([
                       { test: tests[0], user: users[0] },
-                      { test: tests[1], user: users[1] },
-                      { test: tests[2], user: users[2] },
-                      { test: tests[3], user: users[3] },
-                      { test: tests[4], user: users[4] },
-                      { test: tests[5], user: users[5] }
+                      { test: tests[1], user: users[0] },
+                      { test: tests[2], user: users[0] },
+                      { test: tests[3], user: users[0] },
+                      { test: tests[4], user: users[0] },
+                      { test: tests[5], user: users[0] }
                     ])
 
 Question.create!([
