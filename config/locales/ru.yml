@@ -18,6 +18,7 @@ ru:
     log_out: "Выход"
     sign_up: "Регистрация"
     gist: "Ваша сслыка на GitHub Gist"
+    feedback: "Форма обратной связи / Напишите нам"
 
   nav:
     project_title: "TestGuru"
@@ -58,6 +59,13 @@ ru:
       success: "Вы прошли Тест успешно!"
       failure: "Вы провалили Тест!"
 
+  feedbacks:
+    create:
+      success: "Отзыв был успешно отправлен!"
+      failure: "Отзыв не был отправлен! Что-то пошло не так."
+    form:
+      send_feedback: "Отправить сообщение"
+
   helpers:
     submit:
       test:
@@ -80,6 +88,8 @@ ru:
       answer:
         body: "Текст Ответа"
         correct: "Верно?"
+      feedbacks:
+        body: "Текст сообщения"
     select:
       prompt: "Выберите категорию"
 
@@ -98,6 +108,10 @@ ru:
   tests_mailer:
     completed_test:
       subject: "Вы только что прошли тест на портале TestGuru!"
+
+  feedbacks_mailer:
+    send_feedback:
+      subject: "Обратная связь от пользователя TestGuru"
 
   services:
     gist_question_service:

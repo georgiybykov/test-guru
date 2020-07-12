@@ -18,6 +18,7 @@ en:
     log_out: "Log out"
     sign_up: "Sign up"
     gist: "Your GitHub Gist link"
+    feedback: "Leave your feedback / proposal"
 
   nav:
     project_title: "TestGuru"
@@ -58,6 +59,13 @@ en:
       success: "You have been completed the Test successfully!"
       failure: "You have been failed the Test!"
 
+  feedbacks:
+    create:
+      success: "Feedback was sent successfully!"
+      failure: "Feedback was not sent! Oooopss"
+    form:
+      send_feedback: "Send message"
+
   helpers:
     submit:
       test:
@@ -80,6 +88,8 @@ en:
       answer:
         body: "Answer text"
         correct: "Correct?"
+      feedbacks:
+        body: "Message text"
     select:
       prompt: "Select a category"
 
@@ -96,6 +106,10 @@ en:
   tests_mailer:
     completed_test:
       subject: "You just completed the TestGuru test!"
+
+  feedbacks_mailer:
+    send_feedback:
+      subject: "Feedback from TestGuru user"
 
   services:
     gist_question_service:
