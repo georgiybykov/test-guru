@@ -2,6 +2,8 @@
 
 Training project from Thinknetica Web-Development Course.
 
+https://test-guru-georgiy.herokuapp.com/
+
 # List of entities* for the Test-Guru project:
 
 ### User
