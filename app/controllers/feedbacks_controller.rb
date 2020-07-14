@@ -12,7 +12,8 @@ class FeedbacksController < ApplicationController
       FeedbacksMailer.with(email: @feedback.email).send_feedback(@feedback).deliver_now
       redirect_to root_path, notice: t('.success')
     else
-      render :new, alert: t('.failure')
+      flash.now[:alert] = t('.failure')
+      render :new
     end
   end
 

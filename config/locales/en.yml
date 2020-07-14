@@ -62,7 +62,7 @@ en:
   feedbacks:
     create:
       success: "Feedback was sent successfully!"
-      failure: "Feedback was not sent! Oooopss"
+      failure: "Feedback was not sent! Oooopss...something went wrong"
     form:
       send_feedback: "Send message"
 
