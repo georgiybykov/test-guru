@@ -1,7 +1,7 @@
 <div class="card border-primary">
   <div class="card-body">
     <%= form_with model: @feedback, local: true do |form| %>
-      <% render 'shared/errors', resource: @feedback %>
+      <%= render 'shared/errors', resource: @feedback %>
 
       <div class="form-group">
         <p>
