@@ -46,6 +46,8 @@ en:
         header: 'Create New Question for Test: %{test_title}'
       edit:
         header: 'Edit Question in Test: %{test_title}'
+      form:
+        create_question: 'Create Question'
     answers:
       create:
         answer_created: 'Answer was successfully created!'

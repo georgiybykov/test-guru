@@ -42,6 +42,8 @@ ru:
         new_answer_button: 'Новый Ответ'
         answers_label: 'Ответы:'
         edit_question_button: 'Изменить Вопрос'
+      form:
+        create_question: 'Создать Вопрос'
       new:
         header: 'Создать Новый Вопрос для Теста: %{test_title}'
       edit:
