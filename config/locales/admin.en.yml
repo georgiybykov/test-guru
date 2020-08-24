@@ -64,6 +64,8 @@ en:
         header: 'New Answer'
       edit:
         header: 'Editing Answer'
+      form:
+        create_answer: 'Create Answer'
     gists:
       index:
         header: 'Gists of users'

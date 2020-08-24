@@ -64,6 +64,8 @@ ru:
         header: 'Новый Ответ'
       edit:
         header: 'Редактировать Ответ'
+      form:
+        create_answer: 'Создать Ответ'
     gists:
       index:
           header: 'Gists пользователей'
