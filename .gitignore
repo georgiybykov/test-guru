@@ -40,3 +40,6 @@ yarn-debug.log*
 
 # Dotenv file with confidential information
 .env
+
+# Local IDE configurations
+.idea/*

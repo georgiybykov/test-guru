@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TestPassagesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_test_passage, only: %i[show update result gist]
@@ -35,10 +37,10 @@ class TestPassagesController < ApplicationController
 
   def gist_create(url)
     Gist.create!(
-        question: @test_passage.current_question,
-        gist_url: url,
-        user: current_user
-        )
+      question: @test_passage.current_question,
+      gist_url: url,
+      user: current_user
+    )
   end
 
   def set_test_passage
