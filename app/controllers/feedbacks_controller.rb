@@ -12,9 +12,11 @@ class FeedbacksController < ApplicationController
 
     if @feedback.valid?
       FeedbacksMailer.with(email: @feedback.email).send_feedback(@feedback).deliver_now
+
       redirect_to root_path, notice: t('.success')
     else
       flash.now[:alert] = t('.failure')
+
       render :new
     end
   end

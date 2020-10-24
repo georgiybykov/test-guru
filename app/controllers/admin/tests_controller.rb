@@ -44,11 +44,13 @@ class Admin::TestsController < Admin::BaseController
 
   def destroy
     @test.destroy
+
     redirect_to admin_tests_path, notice: t('.test_deleted')
   end
 
   def start
     current_user.tests.push(@test)
+
     redirect_to current_user.test_passage(@test)
   end
 

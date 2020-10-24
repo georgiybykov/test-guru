@@ -32,6 +32,7 @@ class Admin::AnswersController < Admin::BaseController
 
   def destroy
     @answer.destroy
+
     redirect_to admin_question_path(@answer.question), notice: t('.answer_deleted')
   end
 

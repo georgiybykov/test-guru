@@ -5,10 +5,11 @@ class TestPassage < ApplicationRecord
   belongs_to :user
   belongs_to :current_question, class_name: 'Question', optional: true
 
-  before_validation :before_validation_set_next_question
+  before_validation :set_next_question
 
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
+
     save!
   end
 
@@ -38,7 +39,7 @@ class TestPassage < ApplicationRecord
 
   private
 
-  def before_validation_set_next_question
+  def set_next_question
     self.current_question = if new_record?
                               test.questions.order(:id).first if test.present?
                             else
