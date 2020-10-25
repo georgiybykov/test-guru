@@ -66,12 +66,14 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.smtp_settings = {
-    address:                              'smtp.mail.ru',
-    port:                                 465,
+    address:                              'smtp.gmail.com',
+    port:                                 587,
     user_name:                            ENV['SMTP_USERNAME'],
     password:                             ENV['SMTP_PASSWORD'],
     authentication:                       'plain',
-    enable_starttls_auto:                 true
+    enable_starttls_auto:                 true,
+    domain:                               'smtp.gmail.com',
+    openssl_verify_mode:                  'none'
   }
 
   # Ignore bad email addresses and do not raise email delivery errors.
