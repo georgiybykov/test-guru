@@ -61,7 +61,7 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "test_guru_production"
 
   config.action_mailer.perform_caching = false
-  config.action_mailer.default_url_options = { host: 'test-guru-georgiy.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: ENV['TEST_GURU_GEORGIY'] }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
@@ -71,9 +71,7 @@ Rails.application.configure do
     user_name:                            ENV['SMTP_USERNAME'],
     password:                             ENV['SMTP_PASSWORD'],
     authentication:                       'plain',
-    enable_starttls_auto:                 true,
-    domain:                               'smtp.gmail.com',
-    openssl_verify_mode:                  'none'
+    enable_starttls_auto:                 true
   }
 
   # Ignore bad email addresses and do not raise email delivery errors.
