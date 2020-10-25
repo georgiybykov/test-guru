@@ -8,6 +8,7 @@ class Admin::GistsController < Admin::BaseController
 
   def destroy
     @gist.destroy
+
     redirect_to admin_gists_path, notice: t('.gist_deleted')
   end
 

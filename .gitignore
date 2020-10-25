@@ -35,9 +35,6 @@
 yarn-debug.log*
 .yarn-integrity
 
-# Rubocop configuration settings
-.rubocop.yml
-
 # Dotenv file with confidential information
 .env
 

@@ -1,0 +1,80 @@
+AllCops:
+  TargetRubyVersion: 2.7.1
+  Exclude:
+    - "bin/**/*"
+    - "node_modules/**/*"
+    - "db/**/*"
+    - "config/**/*"
+
+Layout/LineLength:
+  Max: 120
+
+Layout/LeadingCommentSpace:
+  Exclude:
+    - Gemfile
+
+Layout/DotPosition:
+  EnforcedStyle: trailing
+
+Style/Documentation:
+  Enabled: false
+
+Style/FormatStringToken:
+  EnforcedStyle: template
+
+Style/HashEachMethods:
+  Enabled: false
+
+Style/HashTransformKeys:
+  Enabled: false
+
+Style/HashTransformValues:
+  Enabled: false
+
+Style/SymbolArray:
+  Exclude:
+    - Gemfile
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+
+Metrics/ClassLength:
+  Max: 200
+
+Metrics/MethodLength:
+  Max: 50
+  Exclude:
+    - db/seeds.rb
+
+Metrics/ParameterLists:
+  CountKeywordArgs: false
+
+Metrics/PerceivedComplexity:
+  Exclude:
+    - db/seeds.rb
+
+Metrics/BlockLength:
+  Exclude:
+    - db/seeds.rb
+
+Metrics/CyclomaticComplexity:
+  Exclude:
+    - db/seeds.rb
+
+Metrics/AbcSize:
+  Max: 40
+
+Lint/RaiseException:
+  Enabled: true
+
+Lint/StructNewOverride:
+  Enabled: true
+
+Naming/VariableNumber:
+  Enabled: true
+  EnforcedStyle: non_integer
+  Exclude:
+    - db/seeds.rb
