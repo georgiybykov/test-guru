@@ -61,7 +61,7 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "test_guru_production"
 
   config.action_mailer.perform_caching = false
-  config.action_mailer.default_url_options = { host: ENV['TEST_GURU_GEORGIY'] }
+  config.action_mailer.default_url_options = { host: ENV['HEROKU_APP_NAME'] + ENV['HEROKU_DOMAIN'] }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true

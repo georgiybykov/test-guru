@@ -1,0 +1,27 @@
+{
+  "name": "review-test-guru-app",
+  "description": "The application for creating and passing tests with ability to save questions to GitHub Gist.",
+  "repository": "https://github.com/georgiybykov/test-guru",
+  "scripts": {
+    "postdeploy": "pg_dump -Fc $DATABASE_URL | pg_restore --clean --no-owner -n public -d $DATABASE_URL && bundle exec rails db:migrate"
+  },
+  "env": {
+    "LANG": {
+      "required": true
+    },
+    "RACK_ENV": {
+      "required": true
+    },
+    "DATABASE_URL": {
+      "required": true
+    }
+  },
+  "addons": [
+    "heroku-postgresql:hobby-dev"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/ruby"
+    }
+  ]
+}
