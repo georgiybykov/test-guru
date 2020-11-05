@@ -9,12 +9,12 @@ categories = Category.create!([
                               ])
 
 users = User.create!([
-                       { email: 'dev.projects@mail.ru',
+                       { email: ENV['DB_SEED_EMAIL'],
                          type: 'Admin',
                          first_name: 'Max',
                          last_name: 'UnderTheSun',
-                         password: 'checkmyproject',
-                         password_confirmation: 'checkmyproject' }
+                         password: ENV['DB_SEED_PASSWORD'],
+                         password_confirmation: ENV['DB_SEED_PASSWORD'] }
                      ])
 
 tests = Test.create!([
