@@ -3,7 +3,7 @@
 class TestPassage < ApplicationRecord
   belongs_to :test
   belongs_to :user
-  belongs_to :current_question, class_name: 'Question', optional: true
+  belongs_to :current_question, class_name: 'Question', optional: true, inverse_of: :test_passages
 
   before_validation :set_next_question
 
@@ -43,7 +43,8 @@ class TestPassage < ApplicationRecord
     self.current_question = if new_record?
                               test.questions.order(:id).first if test.present?
                             else
-                              test.questions.order(:id).where('id > ?', current_question.id).first
+                              # Disabling the Rubocop's rule is just to save this studying example of the code
+                              test.questions.order(:id).where('id > ?', current_question.id).first # rubocop:disable Rails/FindBy
                             end
   end
 

@@ -26,7 +26,10 @@ class TestPassagesController < ApplicationController
     if result.success?
       gist = gist_create(result.html_url)
 
-      flash[:notice] = t('.success', url: view_context.link_to(t('links.gist'), gist.gist_url, target: '_blank'))
+      flash[:notice] = t('.success', url: view_context.link_to(t('links.gist'),
+                                                               gist.gist_url,
+                                                               target: '_blank',
+                                                               rel: 'noopener'))
     else
       flash[:alert] = t('.failure')
     end
