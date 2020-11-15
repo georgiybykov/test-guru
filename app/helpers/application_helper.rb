@@ -8,7 +8,7 @@ module ApplicationHelper
   end
 
   def github_url(author, repo)
-    link_to repo, "https://github.com/#{author}/#{repo}", target: '_blank'
+    link_to repo, "https://github.com/#{author}/#{repo}", target: '_blank', rel: 'noopener'
   end
 
   def greeting_in_header
