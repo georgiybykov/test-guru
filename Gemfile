@@ -69,6 +69,9 @@ group :development do
 
   # Opens e-mails in the browser
   gem 'letter_opener'
+
+  # Creates ER-diagram for the project by using migrated(!) model relations
+  gem 'rails-erd'
 end
 
 group :test do
