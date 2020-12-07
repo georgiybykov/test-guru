@@ -10,6 +10,10 @@ class TestPassagesController < ApplicationController
     @test_passage.accept!(params[:answer_ids])
 
     if @test_passage.completed?
+      new_badge = TestPassages::CreateBadgeService.new(@test_passage).call
+
+      current_user.badges << new_badge
+
       TestsMailer.completed_test(@test_passage).deliver_now
 
       redirect_to result_test_passage_path(@test_passage)
@@ -21,7 +25,7 @@ class TestPassagesController < ApplicationController
   def result; end
 
   def gist
-    result = GistQuestionService.new(@test_passage.current_question).call
+    result = TestPassages::CreateGistQuestionService.new(@test_passage.current_question).call
 
     if result.success?
       gist = gist_create(result.html_url)
