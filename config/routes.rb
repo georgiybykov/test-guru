@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   root to: 'tests#index'
+  get 'badges', to: 'user_bages#index'
 
   devise_for :users, path: :gurus,
              path_names: { sign_in: :login, sign_out: :logout },
@@ -27,6 +28,7 @@ Rails.application.routes.draw do
     end
 
     resources :gists, only: %i[index destroy]
+    resources :badges
   end
 
   resources :feedbacks, only: %i[new create]
