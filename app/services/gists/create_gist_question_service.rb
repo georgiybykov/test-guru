@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module TestPassages
+module Gists
   class CreateGistQuestionService
     Result = Struct.new(:service_result) do
       # allow_nil -> if it gets <nil>, there will not be an error, just will send <nil> futher

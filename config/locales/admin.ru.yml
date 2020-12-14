@@ -29,6 +29,9 @@ ru:
         submit: 'Принять'
       form:
         create_test: 'Создать Тест'
+        new_test: 'Создать Тест'
+        update_test: 'Редактировать Тест'
+        edit_test: 'Редактировать Тест'
     questions:
       create:
         question_created: 'Вопрос был успешно создан!'
@@ -42,12 +45,15 @@ ru:
         new_answer_button: 'Новый Ответ'
         answers_label: 'Ответы:'
         edit_question_button: 'Изменить Вопрос'
-      form:
-        create_question: 'Создать Вопрос'
       new:
         header: 'Создать Новый Вопрос для Теста: %{test_title}'
       edit:
         header: 'Редактировать Вопрос из Теста: %{test_title}'
+      form:
+        create_question: 'Создать Вопрос'
+        new_question: 'Создать Вопрос'
+        update_question: 'Редактировать Вопрос'
+        edit_question: 'Редактировать Вопрос'
     answers:
       create:
         answer_created: 'Ответ был успешно создан!'
@@ -66,12 +72,46 @@ ru:
         header: 'Редактировать Ответ'
       form:
         create_answer: 'Создать Ответ'
+        new_answer: 'Создать Ответ'
+        update_answer: 'Редактировать Ответ'
+        edit_answer: 'Редактировать Ответ'
     gists:
       index:
           header: 'Gists пользователей'
-          gist_question: 'Вопрос из Теста'
-          gist_link: 'Ссылка на GitHub Gist'
-          gist_author: 'Автор Gist'
-          gist_action: 'Действие'
+          question: 'Вопрос из Теста'
+          link_to_github: 'Ссылка на GitHub Gist'
+          author: 'Автор Gist'
+          action: 'Действие'
       destroy:
         gist_deleted: 'Gist был успешно удален!'
+    badges:
+      create:
+        badge_created: 'Бэйдж был успешно создан!'
+      update:
+        badge_updated: 'Бэйдж был успешно обновлен!'
+      destroy:
+        badge_deleted: 'Бэйдж был успешно удален!'
+      index:
+        header: 'Список Бэйджей'
+        new_badge_button: 'Новый Бэйдж'
+        name: 'Название'
+        image: 'Аватар'
+        description: 'Описание'
+        rule: 'Правило'
+        actions: 'Действия'
+      show:
+        header: 'Бэйдж: %{badge_name}'
+        description: 'Описание:'
+        rule: 'Правило:'
+        new_badge_button: 'Новый Бэйдж'
+        badges_list: 'The list of Badges:'
+        edit_badge_button: 'Редактировать Бэйдж'
+      new:
+        header: 'Создать Новый Бэйдж'
+      edit:
+        header: 'Редактировать Бэйдж: %{badge_name}'
+      form:
+        create_badge: 'Создать Бэйдж'
+        new_badge: 'Создать Бэйдж'
+        update_badge: 'Редактировать Бэйдж'
+        edit_badge: 'Редактировать Бэйдж'

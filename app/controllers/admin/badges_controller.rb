@@ -16,15 +16,25 @@ class Admin::BadgesController < Admin::BaseController
   def edit; end
 
   def create
+    @badge = Badge.new(badge_params)
 
+    if @badge.save
+      redirect_to admin_badges_path, notice: t('.badge_created')
+    else
+      render :new
+    end
   end
 
   def update
-
+    if @badge.update(badge_params)
+      redirect_to admin_badges_path, notice: t('.badge_updated')
+    else
+      render :edit
+    end
   end
 
   def destroy
-
+    redirect_to admin_badges_path, notice: t('.badge_deleted') if @badge.destroy
   end
 
   private

@@ -1,14 +1,19 @@
 # frozen_string_literal: true
 
 class TestPassage < ApplicationRecord
+  SUCCESS_PERCENTAGE = 85
+
   belongs_to :test
   belongs_to :user
   belongs_to :current_question, class_name: 'Question', optional: true, inverse_of: :test_passages
 
   before_validation :set_next_question
 
+  # scope :passed, -> { where('result >= ?', SUCCESS_PERCENTAGE) }
+
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
+    self.result = percent_result
 
     save!
   end
@@ -30,7 +35,7 @@ class TestPassage < ApplicationRecord
   end
 
   def success?
-    percent_result >= 85
+    percent_result >= SUCCESS_PERCENTAGE
   end
 
   def passage_progress
