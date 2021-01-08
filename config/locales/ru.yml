@@ -97,7 +97,8 @@ ru:
         image: 'Аватар'
         description: 'Описание'
         rule: 'Правило: '
-        rule_value: 'Описание правила:'
+        rule_value: '* Значение для правила:'
+        categories_list: 'Список доступных категорий для тестов с их `id`: '
     select:
       prompt: 'Выберите категорию'
 
@@ -126,6 +127,6 @@ ru:
       description:  'Вопрос из %{test_title} Теста из ресурса TestGuru'
 
   badge_rules:
-    first_try?: 'Пройти тест с первой попытки'
-    all_for_category?: 'Пройти все тесты в определенной категории'
-    all_level_of?: 'Пройти все тесты определенного уровня'
+    first_attempt_passage?: 'Пройти тест с первой попытки'
+    all_tests_for_level?: 'Пройти все тесты определенного уровня'
+    all_tests_for_category?: 'Пройти все тесты в определенной категории'

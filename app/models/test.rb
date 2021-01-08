@@ -14,11 +14,12 @@ class Test < ApplicationRecord
   scope :easy_level, -> { where(level: 0..1) }
   scope :middle_level, -> { where(level: 2..4) }
   scope :hard_level, -> { where(level: 5..Float::INFINITY) }
-  scope :level, ->(level) { where(level: level) }
+  scope :with_level, ->(level) { where(level: level) }
+  scope :for_category, ->(category_id) { where(category_id: category_id) }
   scope :titles_by_category, lambda { |category_title|
-    joins(:category).
-      where(categories: { title: category_title }).
-      order(title: :desc)
+    joins(:category)
+      .where(categories: { title: category_title })
+      .order(title: :desc)
   }
 
   def self.show_titles_by_category(category_title)

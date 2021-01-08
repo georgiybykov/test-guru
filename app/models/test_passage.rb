@@ -9,7 +9,8 @@ class TestPassage < ApplicationRecord
 
   before_validation :set_next_question
 
-  # scope :passed, -> { where('result >= ?', SUCCESS_PERCENTAGE) }
+  scope :successfully_passed, -> { where('result >= ?', SUCCESS_PERCENTAGE) }
+  scope :for_user, ->(user_id) { where(user_id: user_id) }
 
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
@@ -48,7 +49,7 @@ class TestPassage < ApplicationRecord
     self.current_question = if new_record?
                               test.questions.order(:id).first if test.present?
                             else
-                              # Disabling the Rubocop's rule is just to save this studying example of the code
+                              # Disabling the Rubocop's rule is just to save this studying example of the code.
                               test.questions.order(:id).where('id > ?', current_question.id).first # rubocop:disable Rails/FindBy
                             end
   end

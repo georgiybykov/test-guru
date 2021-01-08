@@ -97,7 +97,8 @@ en:
         image: 'Avatar'
         description: 'Description'
         rule: 'The rule: '
-        rule_value: 'The description of the rule:'
+        rule_value: '* The value for the rule:'
+        categories_list: 'The list of all categories of the tests with its `id`: '
     select:
       prompt: 'Select a category'
 
@@ -124,6 +125,6 @@ en:
       description:  'A question about %{test_title} Test from TestGuru'
 
   badge_rules:
-    first_try?: 'Use one attempt to pass the test'
-    all_for_category?: 'Pass all tests for certain category'
-    all_level_of?: 'Pass all tests for certain level'
+    first_attempt_passage?: 'Use one attempt to pass the test'
+    all_tests_for_level?: 'Pass all tests for the certain level'
+    all_tests_for_category?: 'Pass all tests for the certain category'

@@ -115,3 +115,6 @@ en:
         new_badge: 'Create New Badge'
         update_badge: 'Edit Badge'
         edit_badge: 'Edit Badge'
+        level_rule: 'If the rule is `Pass all tests for the certain level`, you should type the value from 0 to ∞.'
+        category_rule: 'If the rule is `Pass all tests for the certain category`, you should type the `id` of the category.
+                        You can find the `:id` in the list below.'

@@ -2,29 +2,69 @@
 
 module Badges
   class CreateBadgeService
-    BADGE_ACHIEVEMENT_RULES = %i[first_try? all_level_of? all_for_category?].freeze
-
     def initialize(test_passage)
       @test_passage = test_passage
       @user = test_passage.user
     end
 
     def call
-      Badge.all.select do |badge|
-        badge if send(badge.rule.to_s.to_sym, badge.rule_value)
-      end
+      Badge.all.select { |badge| badge if send(badge.rule.to_sym, badge.rule_value.to_i) }
     end
 
     private
 
-    def first_try?
+    def first_attempt_passage?(_unused)
       return unless @test_passage.success?
 
-      @user.tests.where(id: @test_passage.test.id).count == 1
+      passages = TestPassage
+                   .for_user(@user.id)
+                   .successfully_passed
+                   .where(test_id: @test_passage.test_id)
+                   .count
+
+      passages == 1
     end
 
-    def all_level_of?(rule_value); end
+    def all_tests_for_level?(rule_value)
+      return unless @test_passage.success? && @test_passage.test.level.eql?(rule_value)
 
-    def all_for_category?(rule_value); end
+      test_level = @test_passage.test.level
+
+      passed_tests_ids = TestPassage
+                           .joins(:test)
+                           .for_user(@user.id)
+                           .successfully_passed
+                           .where("tests.level": test_level)
+                           .pluck(:test_id)
+                           .uniq!
+
+      all_tests_ids = Test
+                        .with_level(test_level)
+                        .pluck(:id)
+
+      result = all_tests_ids - passed_tests_ids
+
+      result.empty?
+    end
+
+    def all_tests_for_category?(rule_value)
+      return unless @test_passage.success? && @test_passage.test.category_id.eql?(rule_value)
+
+      passed_tests_ids = TestPassage
+                           .joins(:test)
+                           .for_user(@user.id)
+                           .successfully_passed
+                           .where("tests.category_id": @test_passage.test.category_id)
+                           .pluck(:test_id)
+                           .uniq
+                           .sort!
+
+      all_tests_ids = Test
+                        .for_category(@test_passage.test.category_id)
+                        .pluck(:id)
+                        .sort!
+
+      passed_tests_ids == all_tests_ids
+    end
   end
 end

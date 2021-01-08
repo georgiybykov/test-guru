@@ -11,7 +11,7 @@
 
         <p>
           <%= form.label :image %>
-          <%= form.text_field :image, id: :image, class: 'form-control' %>
+          <%= form.file_field :image, id: :image, class: 'form-control' %>
         </p>
 
         <p>
@@ -26,12 +26,23 @@
 
         <p>
           <%= form.label :rule_value %>
-          <%= form.text_field :rule_value, class: 'form-control' %>
+          <%= form.text_field :rule_value, id: :rule_value, class: 'form-control' %>
         </p>
 
         <p>
           <%= form.submit t(".#{action_name}_badge"), class: "btn btn-success" %>
           <%= link_to t('links.back'), admin_badges_path, class: 'btn btn-primary' %>
+        </p>
+
+        <h6>
+          <b> * </b>
+          <p> 1. <%= t('.level_rule') %></p>
+          <p> 2. <%= t('.category_rule') %></p>
+        </h6>
+
+        <p>
+          <%= form.label :categories_list %>
+          <%= form.select :categories_list, show_all_categories_with_ids %>
         </p>
       </div>
     <% end %>

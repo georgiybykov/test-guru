@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2020_12_13_194914) do
     t.string "name", limit: 20
     t.string "image"
     t.string "rule", null: false
+    t.string "rule_value"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
