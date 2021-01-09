@@ -2,9 +2,11 @@
 
 module Badges
   class CreateBadgeService
-    def initialize(test_passage)
+    def initialize(test_passage:, test_passage_repo: TestPassageRepository.new)
       @test_passage = test_passage
       @user = test_passage.user
+
+      @test_passage_repo = test_passage_repo
     end
 
     def call
@@ -16,10 +18,8 @@ module Badges
     def first_attempt_passage?(_unused)
       return unless @test_passage.success?
 
-      passages = TestPassage
-                   .for_user(@user.id)
-                   .successfully_passed
-                   .where(test_id: @test_passage.test_id)
+      passages = @test_passage_repo
+                   .list_of_user_passages_for_test(@user.id, @test_passage.test_id)
                    .count
 
       passages == 1
@@ -30,11 +30,8 @@ module Badges
 
       test_level = @test_passage.test.level
 
-      passed_tests_ids = TestPassage
-                           .joins(:test)
-                           .for_user(@user.id)
-                           .successfully_passed
-                           .where("tests.level": test_level)
+      passed_tests_ids = @test_passage_repo
+                           .list_of_user_passages_by_test_level(@user.id, test_level)
                            .pluck(:test_id)
                            .uniq!
 
@@ -50,11 +47,8 @@ module Badges
     def all_tests_for_category?(rule_value)
       return unless @test_passage.success? && @test_passage.test.category_id.eql?(rule_value)
 
-      passed_tests_ids = TestPassage
-                           .joins(:test)
-                           .for_user(@user.id)
-                           .successfully_passed
-                           .where("tests.category_id": @test_passage.test.category_id)
+      passed_tests_ids = @test_passage_repo
+                           .list_of_user_passages_by_category(@user.id, @test_passage.test.category_id)
                            .pluck(:test_id)
                            .uniq
                            .sort!

@@ -57,6 +57,9 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'rubocop-performance'
   gem 'rubocop-rails'
+
+  # A documentation generation tool
+  gem 'yard'
 end
 
 group :development do

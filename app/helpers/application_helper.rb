@@ -3,8 +3,8 @@
 module ApplicationHelper
   FLASH_MESSAGE_STYLE = { notice: 'success', alert: 'danger' }.freeze
 
-  def current_year
-    Date.current.year
+  def project_lifetime
+    "2020 - #{Date.current.year}"
   end
 
   def github_url(author, repo)
