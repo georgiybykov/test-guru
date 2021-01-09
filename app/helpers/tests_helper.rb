@@ -8,6 +8,12 @@ module TestsHelper
     TEST_LEVELS[test.level] || :hero
   end
 
+  def test_category(test)
+    category = test.category
+
+    category ? category.title : '< undefined >'
+  end
+
   # def test_header(test)
   #   @test.persisted? ? TEST_ACTION[:edit] + test.title : TEST_ACTION[:create]
   # end

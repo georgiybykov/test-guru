@@ -37,6 +37,7 @@ ru:
     index:
       header: 'Доступные Тесты'
       title: 'Название'
+      category: 'Категория'
       level: 'Уровень'
       questions: 'Вопросы'
       actions: 'Действия'

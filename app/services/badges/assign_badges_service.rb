@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Badges
-  # Checks the assigment conditions for each badge to resolve if the user has acheived it or not.
+  # Checks the assigment conditions for each badge to resolve if the user has achieved it or not.
   class AssignBadgesService
     # @param test_passage [TestPassage]
     # @param current_user [User]

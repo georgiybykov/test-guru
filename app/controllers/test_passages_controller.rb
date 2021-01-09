@@ -14,7 +14,7 @@ class TestPassagesController < ApplicationController
 
       new_badges = AssignBadgesService.new(test_passage: @test_passage, current_user: current_user).call
 
-      badges.each { |badge| TestsMailer.acheived_badge(badge, current_user).deliver_now } if new_badges
+      TestsMailer.achieved_badge(new_badges, current_user).deliver_now if new_badges
 
       redirect_to result_test_passage_path(@test_passage)
     else

@@ -11,6 +11,7 @@ ru:
         header: 'Доступные Тесты'
         new_test_button: 'Новый Тест'
         title: 'Название'
+        category: 'Категория'
         level: 'Уровень'
         questions: 'Вопросы'
         actions: 'Действия'

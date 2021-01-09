@@ -11,6 +11,7 @@ en:
         header: 'Tricky Tests'
         new_test_button: 'New Test'
         title: 'Title'
+        category: 'Category'
         level: 'Level'
         questions: 'Questions'
         actions: 'Actions'

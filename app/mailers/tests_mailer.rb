@@ -8,8 +8,8 @@ class TestsMailer < ApplicationMailer
     mail to: @user.email
   end
 
-  def acheived_badge(badge, user)
-    @badge = badge
+  def achieved_badge(badges, user)
+    @badges_names = list_of_achieved_badges(badges)
     @user = user
 
     mail to: user.email
