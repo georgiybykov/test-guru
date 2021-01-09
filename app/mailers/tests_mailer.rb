@@ -9,9 +9,17 @@ class TestsMailer < ApplicationMailer
   end
 
   def achieved_badge(badges, user)
-    @badges_names = list_of_achieved_badges(badges)
+    @badges_names = badges_names_list(badges)
     @user = user
 
     mail to: user.email
+  end
+
+  private
+
+  def badges_names_list(badges)
+    badges
+      .map(&:name)
+      .to_sentence
   end
 end

@@ -1,6 +1,10 @@
 en:
   hello: 'Welcome!'
 
+  support:
+    array:
+      last_word_connector: ' and '
+
   data:
     email: 'Email'
     first_name: 'First name'
@@ -126,6 +130,6 @@ en:
       description:  'A question about %{test_title} Test from TestGuru'
 
   badge_rules:
-    first_attempt_passage?: 'Use one attempt to pass the test'
+    first_attempt_passed?: 'Use one attempt to pass the test'
     all_tests_for_level?: 'Pass all tests for the certain level'
     all_tests_for_category?: 'Pass all tests for the certain category'

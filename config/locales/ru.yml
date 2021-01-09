@@ -1,6 +1,10 @@
 ru:
   hello: 'Добро пожаловать!'
 
+  support:
+    array:
+      last_word_connector: ' и '
+
   data:
     email: 'Электронная почта'
     first_name: 'Имя'
@@ -128,6 +132,6 @@ ru:
       description:  'Вопрос из %{test_title} Теста из ресурса TestGuru'
 
   badge_rules:
-    first_attempt_passage?: 'Пройти тест с первой попытки'
+    first_attempt_passed?: 'Пройти тест с первой попытки'
     all_tests_for_level?: 'Пройти все тесты определенного уровня'
     all_tests_for_category?: 'Пройти все тесты в определенной категории'

@@ -17,3 +17,7 @@ ru:
       messages:
         blank: "не может быть пустым"
         required: "должно быть заполнено"
+        badge:
+          attributes:
+            rule:
+              rule_validation: '- недопустимое значение!'

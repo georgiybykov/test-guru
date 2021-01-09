@@ -9,6 +9,6 @@ class Badge < ApplicationRecord
   validates :name, :image, :description, presence: true
   validates :rule, inclusion: {
     in: ACHIEVEMENT_RULES.map(&:to_s),
-    message: '%{value} is not valid!'
+    message: :rule_validation
   }
 end

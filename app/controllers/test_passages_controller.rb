@@ -12,7 +12,7 @@ class TestPassagesController < ApplicationController
     if @test_passage.completed?
       TestsMailer.completed_test(@test_passage).deliver_now
 
-      new_badges = AssignBadgesService.new(test_passage: @test_passage, current_user: current_user).call
+      new_badges = Badges::AssignBadgesService.new(test_passage: @test_passage, current_user: current_user).call
 
       TestsMailer.achieved_badge(new_badges, current_user).deliver_now if new_badges
 

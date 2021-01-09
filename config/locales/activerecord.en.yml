@@ -1,0 +1,8 @@
+en:
+  activerecord:
+    errors:
+      models:
+        badge:
+          attributes:
+            rule:
+              rule_validation: 'is not valid!'

@@ -15,12 +15,6 @@ module ApplicationHelper
     current_user.first_name || current_user.email
   end
 
-  def list_of_achieved_badges(badges)
-    badges_names = badges.map { |badge| badge.name }
-
-    badges_names.join(', ')
-  end
-
   # def show_flash_message(type)
   #   content_tag :p, flash[type], class: "flash #{type.to_s}" if flash[type]
   # end
