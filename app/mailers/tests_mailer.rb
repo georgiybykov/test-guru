@@ -7,4 +7,11 @@ class TestsMailer < ApplicationMailer
 
     mail to: @user.email
   end
+
+  def acheived_badge(badge, user)
+    @badge = badge
+    @user = user
+
+    mail to: user.email
+  end
 end

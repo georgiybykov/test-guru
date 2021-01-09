@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 module Badges
-  # Checks the assigment conditions for each badge to resolve if it is achived by the user or not.
+  # Checks the assigment conditions for each badge to resolve if the user has acheived it or not.
   class AssignBadgesService
     # @param test_passage [TestPassage]
     # @param current_user [User]
     # @param test_passage_repo [TestPassageRepository]
     #
-    # @return [Boolean]
+    # @return [Array<Badge>, false]
     def initialize(test_passage:, current_user:, test_passage_repo: TestPassageRepository.new)
       @test_passage = test_passage
       @user = current_user
@@ -23,7 +23,7 @@ module Badges
       if achived_badges.any?
         @user.badges << achived_badges
 
-        true
+        achived_badges
       else
         false
       end
