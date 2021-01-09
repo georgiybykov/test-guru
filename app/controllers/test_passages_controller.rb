@@ -12,8 +12,7 @@ class TestPassagesController < ApplicationController
     if @test_passage.completed?
       TestsMailer.completed_test(@test_passage).deliver_now
 
-      new_badge = Badges::CreateBadgeService.new(test_passage: @test_passage).call
-      current_user.badges << new_badge if new_badge&.any?
+      AssignBadgesService.new(test_passage: @test_passage, current_user: current_user).call
 
       redirect_to result_test_passage_path(@test_passage)
     else
