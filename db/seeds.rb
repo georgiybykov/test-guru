@@ -36,6 +36,12 @@ TestPassage.create!([
                       { test: tests[5], user: users[0] }
                     ])
 
+Badge.create!([
+               { name: 'First Attempt Medal', logo: 'default_logo.png', rule: 'first_attempt_passed?', rule_value: '', description: 'You need first success attempt for the certain test to achieve this badge.' },
+               { name: 'Category SuperHero', logo: 'default_logo.png', rule: 'all_tests_for_category?', rule_value: '1', description: 'You need to pass all the tests for the certain category to achieve this badge.' },
+               { name: 'Level Hero', logo: 'default_logo.png', rule: 'all_tests_for_level?', rule_value: '2', description: 'You need to pass all tests for the certain level to achieve this badge.' }
+             ])
+
 Question.create!([
                    { body: 'Is Ruby language for backend development?', test: tests[0], answers: [
                      Answer.new(body: 'Yes', correct: true),

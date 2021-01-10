@@ -8,7 +8,7 @@ class Badge < ApplicationRecord
   has_many :user_badges, dependent: :destroy
   has_many :users, through: :user_badges
 
-  validates :name, :logo, :description, presence: true
+  validates :name, :description, presence: true
   validates :rule, inclusion: {
     in: ACHIEVEMENT_RULES.map(&:to_s),
     message: :rule_validation
