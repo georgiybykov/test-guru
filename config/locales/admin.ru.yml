@@ -16,6 +16,7 @@ ru:
         questions: 'Вопросы'
         actions: 'Действия'
         gists_list: 'Gists пользователей'
+        badges_list: 'Бэйджи'
       show:
         header: 'Тест: %{title}'
         level: 'Уровень'
@@ -96,7 +97,7 @@ ru:
         header: 'Список Бэйджей'
         new_badge_button: 'Новый Бэйдж'
         name: 'Название'
-        image: 'Аватар'
+        image: 'Логотип'
         description: 'Описание'
         rule: 'Правило'
         actions: 'Действия'

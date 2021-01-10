@@ -23,6 +23,7 @@ ru:
     sign_up: 'Регистрация'
     gist: 'Ваша сслыка на GitHub Gist'
     feedback: 'Форма обратной связи / Напишите нам'
+    profile: 'Мой Профиль'
 
   nav:
     project_title: 'TestGuru'
@@ -36,6 +37,18 @@ ru:
     sessions:
       create:
         hello: 'Привет, %{greeting}!'
+    index:
+      header: 'Профиль пользователя: '
+      first_name: 'Имя: '
+      last_name: 'Фамилия: '
+      email: 'Электронный адрес: '
+      achievements: 'Достижения пользователя'
+      name: 'Название'
+      image: 'Логотип'
+      description: 'Описание'
+      rule: 'Правило'
+      no_achievements_warning: 'У Вас пока что нет достижений :('
+      available_achievements: 'Список всех наград'
 
   tests:
     index:
@@ -99,7 +112,7 @@ ru:
         body: 'Текст сообщения'
       badge:
         name: 'Название'
-        image: 'Аватар'
+        image: 'Логотип'
         description: 'Описание'
         rule: 'Правило: '
         rule_value: '* Значение для правила:'
@@ -122,6 +135,8 @@ ru:
   tests_mailer:
     completed_test:
       subject: 'Вы только что прошли тест на портале TestGuru!'
+    achieved_badge:
+      subject: 'У Вас новое достижение!'
 
   feedbacks_mailer:
     send_feedback:

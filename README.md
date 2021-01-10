@@ -1,6 +1,6 @@
 # Test-Guru
 
-Training project from Thinknetica Web-Development Course.
+Study project from Thinknetica Web-Development Course.
 
 https://test-guru-georgiy.herokuapp.com/
 

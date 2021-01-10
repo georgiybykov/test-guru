@@ -1,0 +1,62 @@
+<div class="row justify-content-center mt-3">
+  <div class="col col-md-6">
+    <h1 class="text-center"><b><%= t('.header') %></b><%= greeting_in_header %></h1>
+
+    <div class="card border-primary mb-3">
+      <div class="card-body">
+        <div class="form-group">
+          <p>
+            <b><%= t('.first_name') %></b>
+            <%= current_user.first_name %>
+          </p>
+
+          <p>
+            <b><%= t('.last_name') %></b>
+            <%= current_user.last_name %>
+          </p>
+
+          <p>
+            <b><%= t('.email') %></b>
+            <%= current_user.email %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col col-md-12">
+    <h2 class="text-center"><%= t('.achievements') %></h2>
+
+    <% if current_user.badges.any? %>
+      <table class="table" style="text-align: center">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col"><%= t('.name') %></th>
+            <th scope="col"><%= t('.image') %></th>
+            <th scope="col"><%= t('.description') %></th>
+            <th scope="col"><%= t('.rule') %></th>
+          </tr>
+        </thead>
+
+        <%= render partial: 'badges', collection: current_user.badges, as: :badge %>
+      </table>
+    <% else %>
+      <h6 class="text-center"><%= t('.no_achievements_warning') %></h6>
+    <% end %>
+
+    <h2 class="text-center"><%= t('.available_achievements') %></h2>
+
+    <table class="table" style="text-align: center">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col"><%= t('.name') %></th>
+          <th scope="col"><%= t('.image') %></th>
+          <th scope="col"><%= t('.description') %></th>
+          <th scope="col"><%= t('.rule') %></th>
+        </tr>
+      </thead>
+
+      <%= render partial: 'badges', collection: Badge.all, as: :badge %>
+    </table>
+  </div>
+</div>

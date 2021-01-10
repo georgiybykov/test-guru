@@ -16,6 +16,7 @@ en:
         questions: 'Questions'
         actions: 'Actions'
         gists_list: 'Gists of users'
+        badges_list: 'Badges'
       show:
         header: 'The test: %{title}'
         level: 'Level'
@@ -96,7 +97,7 @@ en:
         header: 'The Badges'
         new_badge_button: 'New Badge'
         name: 'Name'
-        image: 'Avatar'
+        image: 'Logo'
         description: 'Description'
         rule: 'The rule'
         actions: 'Actions'

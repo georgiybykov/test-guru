@@ -23,6 +23,7 @@ en:
     sign_up: 'Sign up'
     gist: 'Your GitHub Gist link'
     feedback: 'Leave your Feedback / Proposal'
+    profile: 'My Profile'
 
   nav:
     project_title: 'TestGuru'
@@ -36,6 +37,18 @@ en:
     sessions:
       create:
         hello: 'Hello, %{greeting}!'
+    index:
+      header: 'The profile of the user: '
+      first_name: 'First name: '
+      last_name: 'Last name: '
+      email: 'e-mail: '
+      achievements: 'The achievements of the user'
+      name: 'Name'
+      image: 'Logo'
+      description: 'Description'
+      rule: 'The rule'
+      no_achievements_warning: 'There are no achievements to be displayed yet :('
+      available_achievements: 'The list of all available achievements'
 
   tests:
     index:
@@ -99,7 +112,7 @@ en:
         body: 'Message text'
       badge:
         name: 'Name'
-        image: 'Avatar'
+        image: 'Logo'
         description: 'Description'
         rule: 'The rule: '
         rule_value: '* The value for the rule:'
@@ -115,11 +128,13 @@ en:
     footer:
       git_hub_repo: 'GitHub: '
       author: 'Made by: Georgiy B.'
-      project_link: 'Training project from Thinknetica'
+      project_link: 'Study project from Thinknetica'
 
   tests_mailer:
     completed_test:
       subject: 'You just completed the TestGuru test!'
+    achieved_badge:
+      subject: 'You got an achievement!'
 
   feedbacks_mailer:
     send_feedback:

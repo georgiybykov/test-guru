@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
   root to: 'tests#index'
-  get 'badges', to: 'user_bages#index'
+
+  get :profile, to: 'users#index'
 
   devise_for :users, path: :gurus,
              path_names: { sign_in: :login, sign_out: :logout },

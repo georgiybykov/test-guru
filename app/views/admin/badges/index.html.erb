@@ -4,7 +4,10 @@
 
     <%= render 'shared/errors', resource: @badge %>
 
-    <p><%= link_to t('.new_badge_button'), new_admin_badge_path, class: 'btn btn-success' %></p>
+    <p>
+      <%= link_to t('.new_badge_button'), new_admin_badge_path, class: 'btn btn-success' %>
+      <%= link_to t('links.back'), admin_tests_path, class: 'btn btn-primary' %>
+    </p>
 
     <table class="table" style="text-align: center">
       <thead class="thead-light">
