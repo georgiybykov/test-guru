@@ -1,7 +1,7 @@
 <tbody>
   <tr>
     <td><%= badge.name %></td>
-    <td><%= badge.image %></td>
+    <td><%= image_tag badge.logo_url %></td>
     <td><%= badge.description %></td>
     <td><%= I18n.t(".badge_rules.#{badge.rule}") %></td>
 

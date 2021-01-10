@@ -1,0 +1,342 @@
+[1mdiff --git a/Gemfile b/Gemfile[m
+[1mindex 2e8dda7..432c8b3 100644[m
+[1m--- a/Gemfile[m
+[1m+++ b/Gemfile[m
+[36m@@ -48,6 +48,9 @@[m [mgem 'octokit', '~> 4.0'[m
+ # Rails helper for including svg octicons in apps[m
+ gem 'octicons_helper'[m
+ [m
+[32m+[m[32m# Uploads files from Ruby applications[m
+[32m+[m[32mgem 'carrierwave', '~> 2.0'[m
+[32m+[m
+ group :development, :test do[m
+   # SHIM TO LOAD ENVIRONMENT VARIABLES[m
+   gem 'dotenv-rails'[m
+[1mdiff --git a/Gemfile.lock b/Gemfile.lock[m
+[1mindex d38ffbb..5c7e7ac 100644[m
+[1m--- a/Gemfile.lock[m
+[1m+++ b/Gemfile.lock[m
+[36m@@ -76,6 +76,13 @@[m [mGEM[m
+       rack-test (>= 0.6.3)[m
+       regexp_parser (~> 1.5)[m
+       xpath (~> 3.2)[m
+[32m+[m[32m    carrierwave (2.1.0)[m
+[32m+[m[32m      activemodel (>= 5.0.0)[m
+[32m+[m[32m      activesupport (>= 5.0.0)[m
+[32m+[m[32m      addressable (~> 2.6)[m
+[32m+[m[32m      image_processing (~> 1.1)[m
+[32m+[m[32m      mimemagic (>= 0.3.0)[m
+[32m+[m[32m      mini_mime (>= 0.1.3)[m
+     childprocess (3.0.0)[m
+     choice (0.2.0)[m
+     coderay (1.1.2)[m
+[36m@@ -104,6 +111,9 @@[m [mGEM[m
+       activesupport (>= 4.2.0)[m
+     i18n (1.8.2)[m
+       concurrent-ruby (~> 1.0)[m
+[32m+[m[32m    image_processing (1.12.1)[m
+[32m+[m[32m      mini_magick (>= 4.9.5, < 5)[m
+[32m+[m[32m      ruby-vips (>= 2.0.17, < 3)[m
+     jaro_winkler (1.5.4)[m
+     jaro_winkler (1.5.4-java)[m
+     jbuilder (2.10.0)[m
+[36m@@ -125,6 +135,7 @@[m [mGEM[m
+       mimemagic (~> 0.3.2)[m
+     method_source (1.0.0)[m
+     mimemagic (0.3.4)[m
+[32m+[m[32m    mini_magick (4.11.0)[m
+     mini_mime (1.0.2)[m
+     mini_portile2 (2.4.0)[m
+     minitest (5.14.0)[m
+[36m@@ -238,6 +249,8 @@[m [mGEM[m
+     ruby-graphviz (1.2.5)[m
+       rexml[m
+     ruby-progressbar (1.10.1)[m
+[32m+[m[32m    ruby-vips (2.0.17)[m
+[32m+[m[32m      ffi (~> 1.9)[m
+     ruby_dep (1.5.0)[m
+     rubyzip (2.3.0)[m
+     sass-rails (6.0.0)[m
+[36m@@ -321,6 +334,7 @@[m [mDEPENDENCIES[m
+   bootsnap (>= 1.4.2)[m
+   byebug[m
+   capybara (>= 2.15)[m
+[32m+[m[32m  carrierwave (~> 2.0)[m
+   devise (~> 4.0)[m
+   devise-i18n (~> 1.9.0)[m
+   dotenv-rails[m
+[1mdiff --git a/app/controllers/admin/badges_controller.rb b/app/controllers/admin/badges_controller.rb[m
+[1mindex b3161ed..9439de2 100644[m
+[1m--- a/app/controllers/admin/badges_controller.rb[m
+[1m+++ b/app/controllers/admin/badges_controller.rb[m
+[36m@@ -44,6 +44,8 @@[m [mclass Admin::BadgesController < Admin::BaseController[m
+   end[m
+ [m
+   def badge_params[m
+[31m-    params.require(:badge).permit(:name, :image, :description, :rule, :rule_value)[m
+[32m+[m[32m    params[m
+[32m+[m[32m      .require(:badge)[m
+[32m+[m[32m      .permit(:name, :logo, :description, :rule, :rule_value, :remove_logo)[m
+   end[m
+ end[m
+[1mdiff --git a/app/models/badge.rb b/app/models/badge.rb[m
+[1mindex 33e76b5..b03d60a 100644[m
+[1m--- a/app/models/badge.rb[m
+[1m+++ b/app/models/badge.rb[m
+[36m@@ -3,10 +3,12 @@[m
+ class Badge < ApplicationRecord[m
+   ACHIEVEMENT_RULES = %i[first_attempt_passed? all_tests_for_level? all_tests_for_category?].freeze[m
+ [m
+[32m+[m[32m  mount_uploader :logo, LogoUploader[m
+[32m+[m
+   has_many :user_badges, dependent: :destroy[m
+   has_many :users, through: :user_badges[m
+ [m
+[31m-  validates :name, :image, :description, presence: true[m
+[32m+[m[32m  validates :name, :logo, :description, presence: true[m
+   validates :rule, inclusion: {[m
+     in: ACHIEVEMENT_RULES.map(&:to_s),[m
+     message: :rule_validation[m
+[1mdiff --git a/app/views/admin/badges/_badge.html.erb b/app/views/admin/badges/_badge.html.erb[m
+[1mindex a22538d..dc90a0f 100644[m
+[1m--- a/app/views/admin/badges/_badge.html.erb[m
+[1m+++ b/app/views/admin/badges/_badge.html.erb[m
+[36m@@ -1,7 +1,7 @@[m
+ <tbody>[m
+   <tr>[m
+     <td><%= badge.name %></td>[m
+[31m-    <td><%= badge.image %></td>[m
+[32m+[m[32m    <td><%= image_tag badge.logo_url %></td>[m
+     <td><%= badge.description %></td>[m
+     <td><%= I18n.t(".badge_rules.#{badge.rule}") %></td>[m
+ [m
+[1mdiff --git a/app/views/admin/badges/_form.html.erb b/app/views/admin/badges/_form.html.erb[m
+[1mindex 65ea531..9aaf0cb 100644[m
+[1m--- a/app/views/admin/badges/_form.html.erb[m
+[1m+++ b/app/views/admin/badges/_form.html.erb[m
+[36m@@ -5,27 +5,35 @@[m
+ [m
+       <div class="form-group">[m
+         <p>[m
+[31m-          <%= form.label :name %>[m
+[32m+[m[32m          <b><%= form.label :name %></b>[m
+           <%= form.text_field :name, id: :name, class: 'form-control' %>[m
+         </p>[m
+ [m
+         <p>[m
+[31m-          <%= form.label :image %>[m
+[31m-          <%= form.file_field :image, id: :image, class: 'form-control' %>[m
+[32m+[m[32m          <b><%= form.label :logo %></b>[m
+[32m+[m[32m          <p>[m
+[32m+[m[32m            <%= image_tag @badge.logo_url if @badge.logo? %>[m
+[32m+[m[32m            <%= form.file_field :logo %>[m
+[32m+[m[32m          </p>[m
+         </p>[m
+ [m
+         <p>[m
+[31m-          <%= form.label :description %>[m
+[32m+[m[32m          <%= form.label :remove_logo %>[m
+[32m+[m[32m          <%= form.check_box :remove_logo %>[m
+[32m+[m[32m        </p>[m
+[32m+[m
+[32m+[m[32m        <p>[m
+[32m+[m[32m          <b><%= form.label :description %></b>[m
+           <%= form.text_area :description, class: 'form-control' %>[m
+         </p>[m
+ [m
+         <p>[m
+[31m-          <%= form.label :rule %>[m
+[32m+[m[32m          <b><%= form.label :rule %></b>[m
+           <%= form.select :rule, badges_rules, selected: @badge.rule %>[m
+         </p>[m
+ [m
+         <p>[m
+[31m-          <%= form.label :rule_value %>[m
+[32m+[m[32m          <b><%= form.label :rule_value %></b>[m
+           <%= form.text_field :rule_value, id: :rule_value, class: 'form-control' %>[m
+         </p>[m
+ [m
+[1mdiff --git a/app/views/admin/badges/index.html.erb b/app/views/admin/badges/index.html.erb[m
+[1mindex 1bf8cbb..8cc50d9 100644[m
+[1m--- a/app/views/admin/badges/index.html.erb[m
+[1m+++ b/app/views/admin/badges/index.html.erb[m
+[36m@@ -13,7 +13,7 @@[m
+       <thead class="thead-light">[m
+         <tr>[m
+           <th scope="col"><%= t('.name') %></th>[m
+[31m-          <th scope="col"><%= t('.image') %></th>[m
+[32m+[m[32m          <th scope="col"><%= t('.logo') %></th>[m
+           <th scope="col"><%= t('.description') %></th>[m
+           <th scope="col"><%= t('.rule') %></th>[m
+           <th scope="col" colspan="3"><%= t('.actions') %></th>[m
+[1mdiff --git a/app/views/admin/badges/show.html.erb b/app/views/admin/badges/show.html.erb[m
+[1mindex cd0cc2b..256c198 100644[m
+[1m--- a/app/views/admin/badges/show.html.erb[m
+[1m+++ b/app/views/admin/badges/show.html.erb[m
+[36m@@ -5,6 +5,11 @@[m
+     <div class="card border-primary mb-3">[m
+       <div class="card-body">[m
+         <div class="form-group">[m
+[32m+[m[32m          <p>[m
+[32m+[m[32m            <b><%= t('.logo') %></b>[m
+[32m+[m[32m            <%= image_tag @badge.logo_url %>[m
+[32m+[m[32m          </p>[m
+[32m+[m
+           <p>[m
+             <b><%= t('.description') %></b>[m
+             <%= @badge.description %>[m
+[1mdiff --git a/app/views/users/_badges.html.erb b/app/views/users/_badges.html.erb[m
+[1mindex 2503d8d..7457117 100644[m
+[1m--- a/app/views/users/_badges.html.erb[m
+[1m+++ b/app/views/users/_badges.html.erb[m
+[36m@@ -1,7 +1,7 @@[m
+ <tbody>[m
+   <tr>[m
+     <td><%= badge.name %></td>[m
+[31m-    <td><%= badge.image %></td>[m
+[32m+[m[32m    <td><%= image_tag badge.logo_url %></td>[m
+     <td><%= badge.description %></td>[m
+     <td><%= I18n.t(".badge_rules.#{badge.rule}") %></td>[m
+   </tr>[m
+[1mdiff --git a/app/views/users/index.html.erb b/app/views/users/index.html.erb[m
+[1mindex b398b07..8d43e94 100644[m
+[1m--- a/app/views/users/index.html.erb[m
+[1m+++ b/app/views/users/index.html.erb[m
+[36m@@ -32,7 +32,7 @@[m
+         <thead class="thead-light">[m
+           <tr>[m
+             <th scope="col"><%= t('.name') %></th>[m
+[31m-            <th scope="col"><%= t('.image') %></th>[m
+[32m+[m[32m            <th scope="col"><%= t('.logo') %></th>[m
+             <th scope="col"><%= t('.description') %></th>[m
+             <th scope="col"><%= t('.rule') %></th>[m
+           </tr>[m
+[36m@@ -50,7 +50,7 @@[m
+       <thead class="thead-dark">[m
+         <tr>[m
+           <th scope="col"><%= t('.name') %></th>[m
+[31m-          <th scope="col"><%= t('.image') %></th>[m
+[32m+[m[32m          <th scope="col"><%= t('.logo') %></th>[m
+           <th scope="col"><%= t('.description') %></th>[m
+           <th scope="col"><%= t('.rule') %></th>[m
+         </tr>[m
+[1mdiff --git a/config/environment.rb b/config/environment.rb[m
+[1mindex 426333b..b34d78b 100644[m
+[1m--- a/config/environment.rb[m
+[1m+++ b/config/environment.rb[m
+[36m@@ -1,5 +1,8 @@[m
+ # Load the Rails application.[m
+ require_relative 'application'[m
+ [m
+[32m+[m[32m# Load the CarrierWave after loading the ORM.[m
+[32m+[m[32mrequire 'carrierwave/orm/activerecord'[m
+[32m+[m
+ # Initialize the Rails application.[m
+ Rails.application.initialize![m
+[1mdiff --git a/config/locales/admin.en.yml b/config/locales/admin.en.yml[m
+[1mindex 8f46957..91a2cac 100644[m
+[1m--- a/config/locales/admin.en.yml[m
+[1m+++ b/config/locales/admin.en.yml[m
+[36m@@ -97,12 +97,13 @@[m [men:[m
+         header: 'The Badges'[m
+         new_badge_button: 'New Badge'[m
+         name: 'Name'[m
+[31m-        image: 'Logo'[m
+[31m-        description: 'Description'[m
+[32m+[m[32m        logo: 'Logo'[m
+[32m+[m[32m        description: 'Descriptionasdasdasdsdsad'[m
+         rule: 'The rule'[m
+         actions: 'Actions'[m
+       show:[m
+         header: 'The Badge: %{badge_name}'[m
+[32m+[m[32m        logo: 'Logo:'[m
+         description: 'The description:'[m
+         rule: 'The rule:'[m
+         new_badge_button: 'New Badge'[m
+[1mdiff --git a/config/locales/admin.ru.yml b/config/locales/admin.ru.yml[m
+[1mindex 1b8319a..99dcf83 100644[m
+[1m--- a/config/locales/admin.ru.yml[m
+[1m+++ b/config/locales/admin.ru.yml[m
+[36m@@ -97,12 +97,13 @@[m [mru:[m
+         header: 'Список Бэйджей'[m
+         new_badge_button: 'Новый Бэйдж'[m
+         name: 'Название'[m
+[31m-        image: 'Логотип'[m
+[32m+[m[32m        logo: 'Логотип'[m
+         description: 'Описание'[m
+         rule: 'Правило'[m
+         actions: 'Действия'[m
+       show:[m
+         header: 'Бэйдж: %{badge_name}'[m
+[32m+[m[32m        logo: 'Логотип:'[m
+         description: 'Описание:'[m
+         rule: 'Правило:'[m
+         new_badge_button: 'Новый Бэйдж'[m
+[1mdiff --git a/config/locales/en.yml b/config/locales/en.yml[m
+[1mindex 7c43bbe..f5c77b9 100644[m
+[1m--- a/config/locales/en.yml[m
+[1m+++ b/config/locales/en.yml[m
+[36m@@ -44,7 +44,7 @@[m [men:[m
+       email: 'e-mail: '[m
+       achievements: 'The achievements of the user'[m
+       name: 'Name'[m
+[31m-      image: 'Logo'[m
+[32m+[m[32m      logo: 'Logo'[m
+       description: 'Description'[m
+       rule: 'The rule'[m
+       no_achievements_warning: 'There are no achievements to be displayed yet :('[m
+[36m@@ -112,7 +112,8 @@[m [men:[m
+         body: 'Message text'[m
+       badge:[m
+         name: 'Name'[m
+[31m-        image: 'Logo'[m
+[32m+[m[32m        logo: 'Logo'[m
+[32m+[m[32m        remove_logo: 'Remove logo'[m
+         description: 'Description'[m
+         rule: 'The rule: '[m
+         rule_value: '* The value for the rule:'[m
+[1mdiff --git a/config/locales/ru.yml b/config/locales/ru.yml[m
+[1mindex cb6434d..bcaad8c 100644[m
+[1m--- a/config/locales/ru.yml[m
+[1m+++ b/config/locales/ru.yml[m
+[36m@@ -44,7 +44,7 @@[m [mru:[m
+       email: 'Электронный адрес: '[m
+       achievements: 'Достижения пользователя'[m
+       name: 'Название'[m
+[31m-      image: 'Логотип'[m
+[32m+[m[32m      logo: 'Логотип'[m
+       description: 'Описание'[m
+       rule: 'Правило'[m
+       no_achievements_warning: 'У Вас пока что нет достижений :('[m
+[36m@@ -112,7 +112,8 @@[m [mru:[m
+         body: 'Текст сообщения'[m
+       badge:[m
+         name: 'Название'[m
+[31m-        image: 'Логотип'[m
+[32m+[m[32m        logo: 'Логотип'[m
+[32m+[m[32m        remove_logo: 'Удалить логотип'[m
+         description: 'Описание'[m
+         rule: 'Правило: '[m
+         rule_value: '* Значение для правила:'[m
+[1mdiff --git a/db/schema.rb b/db/schema.rb[m
+[1mindex 7f0ca26..2869263 100644[m
+[1m--- a/db/schema.rb[m
+[1m+++ b/db/schema.rb[m
+[36m@@ -10,7 +10,7 @@[m
+ #[m
+ # It's strongly recommended that you check this file into your version control system.[m
+ [m
+[31m-ActiveRecord::Schema.define(version: 2020_12_13_194914) do[m
+[32m+[m[32mActiveRecord::Schema.define(version: 2021_01_10_133100) do[m
+ [m
+   # These are extensions that must be enabled in order to support this database[m
+   enable_extension "plpgsql"[m
+[36m@@ -26,7 +26,7 @@[m [mActiveRecord::Schema.define(version: 2020_12_13_194914) do[m
+ [m
+   create_table "badges", force: :cascade do |t|[m
+     t.string "name", limit: 20[m
+[31m-    t.string "image"[m
+[32m+[m[32m    t.string "logo"[m
+     t.string "rule", null: false[m
+     t.string "rule_value"[m
+     t.text "description"[m

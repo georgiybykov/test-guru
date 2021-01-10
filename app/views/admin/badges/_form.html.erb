@@ -5,27 +5,35 @@
 
       <div class="form-group">
         <p>
-          <%= form.label :name %>
+          <b><%= form.label :name %></b>
           <%= form.text_field :name, id: :name, class: 'form-control' %>
         </p>
 
         <p>
-          <%= form.label :image %>
-          <%= form.file_field :image, id: :image, class: 'form-control' %>
+          <b><%= form.label :logo %></b>
+          <p>
+            <%= image_tag @badge.logo_url if @badge.logo? %>
+            <%= form.file_field :logo %>
+          </p>
         </p>
 
         <p>
-          <%= form.label :description %>
+          <%= form.label :remove_logo %>
+          <%= form.check_box :remove_logo %>
+        </p>
+
+        <p>
+          <b><%= form.label :description %></b>
           <%= form.text_area :description, class: 'form-control' %>
         </p>
 
         <p>
-          <%= form.label :rule %>
+          <b><%= form.label :rule %></b>
           <%= form.select :rule, badges_rules, selected: @badge.rule %>
         </p>
 
         <p>
-          <%= form.label :rule_value %>
+          <b><%= form.label :rule_value %></b>
           <%= form.text_field :rule_value, id: :rule_value, class: 'form-control' %>
         </p>
 

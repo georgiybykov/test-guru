@@ -6,6 +6,11 @@
       <div class="card-body">
         <div class="form-group">
           <p>
+            <b><%= t('.logo') %></b>
+            <%= image_tag @badge.logo_url %>
+          </p>
+
+          <p>
             <b><%= t('.description') %></b>
             <%= @badge.description %>
           </p>

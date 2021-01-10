@@ -44,7 +44,7 @@ en:
       email: 'e-mail: '
       achievements: 'The achievements of the user'
       name: 'Name'
-      image: 'Logo'
+      logo: 'Logo'
       description: 'Description'
       rule: 'The rule'
       no_achievements_warning: 'There are no achievements to be displayed yet :('
@@ -112,7 +112,8 @@ en:
         body: 'Message text'
       badge:
         name: 'Name'
-        image: 'Logo'
+        logo: 'Logo'
+        remove_logo: 'Remove logo'
         description: 'Description'
         rule: 'The rule: '
         rule_value: '* The value for the rule:'

@@ -44,7 +44,7 @@ ru:
       email: 'Электронный адрес: '
       achievements: 'Достижения пользователя'
       name: 'Название'
-      image: 'Логотип'
+      logo: 'Логотип'
       description: 'Описание'
       rule: 'Правило'
       no_achievements_warning: 'У Вас пока что нет достижений :('
@@ -112,7 +112,8 @@ ru:
         body: 'Текст сообщения'
       badge:
         name: 'Название'
-        image: 'Логотип'
+        logo: 'Логотип'
+        remove_logo: 'Удалить логотип'
         description: 'Описание'
         rule: 'Правило: '
         rule_value: '* Значение для правила:'
