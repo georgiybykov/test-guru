@@ -19,7 +19,7 @@ class TestsMailer < ApplicationMailer
 
   def badges_names_list(badges)
     badges
-      .map(&:name)
+      .pluck(:name)
       .to_sentence
   end
 end

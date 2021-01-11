@@ -5,16 +5,12 @@ module Badges
   class AssignBadgesService
     # @param test_passage [TestPassage]
     # @param current_user [User]
-    # @param test_passage_repo [TestPassageRepository] Dependency injection of TestPassageRepository
-    #
-    # @return [Array<Badge>, false]
-    def initialize(test_passage:, current_user:, test_passage_repo: TestPassageRepository.new)
+    def initialize(test_passage:, current_user:)
       @test_passage = test_passage
       @user = current_user
-
-      @test_passage_repo = test_passage_repo
     end
 
+    # @return [Array<Badge>, false]
     def call
       return false unless test_passage.success?
 
@@ -31,11 +27,13 @@ module Badges
 
     private
 
-    attr_reader :test_passage, :user, :test_passage_repo
+    attr_reader :test_passage, :user
 
     def first_attempt_passed?(_unused)
-      passages = test_passage_repo
-                   .list_of_user_passages_for_test(user.id, test_passage.test_id)
+      passages = TestPassage
+                   .for_user(user.id)
+                   .successfully_passed
+                   .where(test_id: test_passage.test_id)
                    .count
 
       passages == 1
@@ -46,8 +44,11 @@ module Badges
 
       test_level = test_passage.test.level
 
-      passed_tests_ids = test_passage_repo
-                           .list_of_user_passages_by_test_level(user.id, test_level)
+      passed_tests_ids = TestPassage
+                           .joins(:test)
+                           .for_user(user.id)
+                           .successfully_passed
+                           .where("tests.level": test_level)
                            .pluck(:test_id)
                            .uniq!
 
@@ -65,8 +66,11 @@ module Badges
 
       return unless category_id.eql?(rule_value)
 
-      passed_tests_ids = test_passage_repo
-                           .list_of_user_passages_by_category(user.id, category_id)
+      passed_tests_ids = TestPassage
+                           .joins(:test)
+                           .for_user(user.id)
+                           .successfully_passed
+                           .where("tests.category_id": category_id)
                            .pluck(:test_id)
                            .uniq
                            .sort!

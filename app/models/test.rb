@@ -10,19 +10,21 @@ class Test < ApplicationRecord
   validates :title, presence: true
   validates :title, uniqueness: { scope: :level }
   validates :level, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :category, presence: true
 
   scope :easy_level, -> { where(level: 0..1) }
   scope :middle_level, -> { where(level: 2..4) }
   scope :hard_level, -> { where(level: 5..Float::INFINITY) }
   scope :with_level, ->(level) { where(level: level) }
   scope :for_category, ->(category_id) { where(category_id: category_id) }
-  scope :titles_by_category, lambda { |category_title|
+
+  def self.by_category_titles(category_title)
     joins(:category)
       .where(categories: { title: category_title })
       .order(title: :desc)
-  }
+  end
 
-  def self.show_titles_by_category(category_title)
-    titles_by_category(category_title).pluck(:title)
+  def self.show_category_title(category_title)
+    by_category_titles(category_title).pluck(:title)
   end
 end
