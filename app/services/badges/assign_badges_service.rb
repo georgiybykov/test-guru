@@ -11,7 +11,7 @@ module Badges
     end
 
     # @return [Array<Badge>, false]
-    def call
+    def fetch_assigned_badges
       return false unless test_passage.success?
 
       achived_badges = Badge.all.select { |badge| badge if send(badge.rule.to_sym, badge.rule_value.to_i) }
@@ -40,9 +40,9 @@ module Badges
     end
 
     def all_tests_for_level?(rule_value)
-      return unless test_passage.test.level.eql?(rule_value)
-
       test_level = test_passage.test.level
+
+      return unless test_level.eql?(rule_value)
 
       passed_tests_ids = TestPassage
                            .joins(:test)
@@ -50,7 +50,7 @@ module Badges
                            .successfully_passed
                            .where("tests.level": test_level)
                            .pluck(:test_id)
-                           .uniq!
+                           .uniq
 
       certain_level_tests_ids = Test
                                   .with_level(test_level)

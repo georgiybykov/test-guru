@@ -23,8 +23,8 @@ tests = Test.create!([
                        { title: 'Advanced', level: 2, presence: true, category: categories[2], author: users[0] },
                        { title: 'Special', level: 3, presence: true, category: categories[3], author: users[0] },
                        { title: 'Ruby Test', level: 4, presence: true, category: categories[4], author: users[0] },
-                       { title: 'Work Flow', level: 5, presence: true, category: categories[5], author: users[0] },
-                       { title: 'Git WorkFlow', level: 7, presence: true, category: categories[6], author: users[0] }
+                       { title: 'Work Flow', level: 5, presence: true, category: categories[3], author: users[0] },
+                       { title: 'Git WorkFlow', level: 7, presence: true, category: categories[3], author: users[0] }
                      ])
 
 TestPassage.create!([
@@ -37,9 +37,9 @@ TestPassage.create!([
                     ])
 
 Badge.create!([
-               { name: 'First Attempt Medal', logo: 'default_logo.png', rule: 'first_attempt_passed?', rule_value: '', description: 'You need first success attempt for the certain test to achieve this badge.' },
-               { name: 'Category SuperHero', logo: 'default_logo.png', rule: 'all_tests_for_category?', rule_value: '1', description: 'You need to pass all the tests for the certain category to achieve this badge.' },
-               { name: 'Level Hero', logo: 'default_logo.png', rule: 'all_tests_for_level?', rule_value: '2', description: 'You need to pass all tests for the certain level to achieve this badge.' }
+               { name: 'First Attempt Badge', logo: 'default_logo.png', rule: 'first_attempt_passed?', rule_value: '', description: 'You need first success attempt for the certain test.' },
+               { name: 'Category Backend Badge', logo: 'default_logo.png', rule: 'all_tests_for_category?', rule_value: '2', description: 'You need to pass all the tests for the Backend category.' },
+               { name: 'Level Advanced Badge', logo: 'default_logo.png', rule: 'all_tests_for_level?', rule_value: '2', description: 'You need to pass all tests for the Advanced level.' }
              ])
 
 Question.create!([

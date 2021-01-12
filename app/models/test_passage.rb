@@ -9,8 +9,8 @@ class TestPassage < ApplicationRecord
 
   before_validation :set_next_question
 
-  scope :successfully_passed, -> { where('result >= ?', SUCCESS_PERCENTAGE) }
   scope :for_user, ->(user_id) { where(user_id: user_id) }
+  scope :successfully_passed, -> { where('result >= ?', SUCCESS_PERCENTAGE) }
 
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
