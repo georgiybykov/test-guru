@@ -9,7 +9,7 @@ class TestPassage < ApplicationRecord
 
   before_validation :set_next_question
 
-  scope :for_user, ->(user_id) { where(user_id: user_id) }
+  scope :by_user_id, ->(user_id) { where(user_id: user_id) }
   scope :successfully_passed, -> { where('result >= ?', SUCCESS_PERCENTAGE) }
 
   def accept!(answer_ids)

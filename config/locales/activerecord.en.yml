@@ -1,5 +1,14 @@
 en:
   activerecord:
+    attributes:
+      test:
+        levels:
+          easy: 'Easy'
+          elementary: 'Elementary'
+          medium: 'Medium'
+          advanced: 'Advanced'
+          hard: 'Hard'
+          hero: 'Hero'
     errors:
       models:
         badge:

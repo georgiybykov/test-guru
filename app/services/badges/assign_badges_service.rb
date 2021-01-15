@@ -10,19 +10,15 @@ module Badges
       @user = current_user
     end
 
-    # @return [Array<Badge>, false]
+    # @return [Array<Badge>]
     def fetch_assigned_badges
-      return false unless test_passage.success?
+      return [] unless test_passage.success?
 
       achived_badges = Badge.all.select { |badge| badge if send(badge.rule.to_sym, badge.rule_value.to_i) }
 
-      if achived_badges.any?
-        user.badges << achived_badges
+      user.badges << achived_badges if achived_badges.any?
 
-        achived_badges
-      else
-        false
-      end
+      achived_badges
     end
 
     private
@@ -31,7 +27,7 @@ module Badges
 
     def first_attempt_passed?(_unused)
       passages = TestPassage
-                   .for_user(user.id)
+                   .by_user_id(user.id)
                    .successfully_passed
                    .where(test_id: test_passage.test_id)
                    .count
@@ -46,9 +42,9 @@ module Badges
 
       passed_tests_ids = TestPassage
                            .joins(:test)
-                           .for_user(user.id)
+                           .by_user_id(user.id)
                            .successfully_passed
-                           .where("tests.level": test_level)
+                           .where(tests: { level: test_level })
                            .pluck(:test_id)
                            .uniq
 
@@ -68,9 +64,9 @@ module Badges
 
       passed_tests_ids = TestPassage
                            .joins(:test)
-                           .for_user(user.id)
+                           .by_user_id(user.id)
                            .successfully_passed
-                           .where("tests.category_id": category_id)
+                           .where(tests: { category_id: category_id })
                            .pluck(:test_id)
                            .uniq
                            .sort!

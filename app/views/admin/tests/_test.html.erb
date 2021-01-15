@@ -5,7 +5,7 @@
       <%= render 'form_inline', test: test == @test ? @test : test %>
     </td>
     <td class="align-middle"><%= test.category.title %></td>
-    <td class="align-middle"><%= test_level(test) %></td>
+    <td class="align-middle"><%= t("activerecord.attributes.test.levels.#{test.level}") %></td>
     <td class="align-middle"><%= test.questions.count %></td>
 
     <td class="align-middle">

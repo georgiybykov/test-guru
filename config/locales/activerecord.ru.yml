@@ -1,5 +1,14 @@
 ru:
   activerecord:
+    attributes:
+      test:
+        levels:
+          easy: 'Легкий'
+          elementary: 'Начальный'
+          medium: 'Средний'
+          advanced: 'Продвинутый'
+          hard: 'Тяжелый'
+          hero: 'Невероятный'
     models:
       test: 'Тест'
       question: 'Вопрос'

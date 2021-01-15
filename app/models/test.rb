@@ -1,6 +1,15 @@
 # frozen_string_literal: true
 
 class Test < ApplicationRecord
+  enum level: {
+    'easy' => 0,
+    'elementary' => 1,
+    'medium' => 2,
+    'advanced' => 3,
+    'hard' => 4,
+    'hero' => 5
+  }.freeze
+
   belongs_to :category, optional: true
   belongs_to :author, class_name: 'User', inverse_of: :authored_tests, foreign_key: :author_id, touch: true
   has_many :questions, dependent: :destroy

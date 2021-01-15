@@ -24,7 +24,7 @@ tests = Test.create!([
                        { title: 'Special', level: 3, presence: true, category: categories[3], author: users[0] },
                        { title: 'Ruby Test', level: 4, presence: true, category: categories[4], author: users[0] },
                        { title: 'Work Flow', level: 5, presence: true, category: categories[3], author: users[0] },
-                       { title: 'Git WorkFlow', level: 7, presence: true, category: categories[3], author: users[0] }
+                       { title: 'Git WorkFlow', level: 5, presence: true, category: categories[3], author: users[0] }
                      ])
 
 TestPassage.create!([

@@ -2,7 +2,7 @@
 
 module Admin::BadgesHelper
   def badges_rules
-    Badge::ACHIEVEMENT_RULES.map { |symbol| [I18n.t(".badge_rules.#{symbol}"), symbol] }
+    Badge.rules.keys.map { |symbol| [I18n.t(".badge_rules.#{symbol}"), symbol] }
   end
 
   def show_all_categories_with_ids
