@@ -39,7 +39,8 @@ TestPassage.create!([
 Badge.create!([
                { name: 'First Attempt Badge', logo: 'default_logo.png', rule: 'first_attempt_passed?', rule_value: '', description: 'You need first success attempt for the certain test.' },
                { name: 'Category Backend Badge', logo: 'default_logo.png', rule: 'all_tests_for_category?', rule_value: '2', description: 'You need to pass all the tests for the Backend category.' },
-               { name: 'Level Advanced Badge', logo: 'default_logo.png', rule: 'all_tests_for_level?', rule_value: '2', description: 'You need to pass all tests for the Advanced level.' }
+               { name: 'Level Elementary Badge', logo: 'default_logo.png', rule: 'all_tests_for_level?', rule_value: '1', description: 'You need to pass all tests for the Elementary level.' },
+               { name: 'Level Hero Badge', logo: 'default_logo.png', rule: 'all_tests_for_level?', rule_value: '5', description: 'You need to pass all tests for the Hero level.' }
              ])
 
 Question.create!([

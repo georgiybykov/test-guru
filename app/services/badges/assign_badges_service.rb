@@ -8,6 +8,7 @@ module Badges
     def initialize(test_passage:, current_user:)
       @test_passage = test_passage
       @user = current_user
+      @test = test_passage.test
     end
 
     # @return [Array<Badge>]
@@ -23,22 +24,26 @@ module Badges
 
     private
 
-    attr_reader :test_passage, :user
+    attr_reader :test_passage, :user, :test
 
     def first_attempt_passed?(_unused)
-      passages = TestPassage
-                   .by_user_id(user.id)
-                   .successfully_passed
-                   .where(test_id: test_passage.test_id)
-                   .count
+      previous_passages = TestPassage
+                            .by_user_id(user.id)
+                            .where(test_id: test.id)
+                            .where('updated_at < ?', test_passage.updated_at)
+                            .count
 
-      passages == 1
+      return if previous_passages >= 1
+
+      true
     end
 
     def all_tests_for_level?(rule_value)
-      test_level = test_passage.test.level
+      test_level = test.level
 
-      return unless test_level.eql?(rule_value)
+      user_test_level_badges = UserBadge.by_rules(:all_tests_for_level?, rule_value)
+
+      return unless Test.levels[test_level].eql?(rule_value) && user_test_level_badges.count.zero?
 
       passed_tests_ids = TestPassage
                            .joins(:test)
@@ -58,9 +63,11 @@ module Badges
     end
 
     def all_tests_for_category?(rule_value)
-      category_id = test_passage.test.category_id
+      category_id = test.category_id
 
-      return unless category_id.eql?(rule_value)
+      user_test_category_badges = UserBadge.by_rules(:all_tests_for_category?, rule_value)
+
+      return unless category_id.eql?(rule_value) && user_test_category_badges.count.zero?
 
       passed_tests_ids = TestPassage
                            .joins(:test)

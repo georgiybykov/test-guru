@@ -8,7 +8,7 @@ ru:
           medium: 'Средний'
           advanced: 'Продвинутый'
           hard: 'Тяжелый'
-          hero: 'Невероятный'
+          hero: 'Оч тяжелый'
     models:
       test: 'Тест'
       question: 'Вопрос'
