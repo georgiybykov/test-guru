@@ -11,7 +11,7 @@
 
         <p>
           <%= form.label :level %>
-          <%= form.number_field :level, id: :test_level, class: 'form-control' %>
+          <%= form.number_field :level, id: :test_level, min: 0, class: 'form-control' %>
         </p>
 
         <p>
@@ -27,7 +27,7 @@
         <% end %>
 
         <p>
-          <%= form.submit t('.create_test'), class: "btn btn-success" %>
+          <%= form.submit t(".#{action_name}_test"), class: "btn btn-success" %>
           <%= link_to t('links.back'), admin_tests_path, class: "btn btn-primary" %>
         </p>
       </div>

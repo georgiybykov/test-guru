@@ -1,0 +1,58 @@
+<div class="card border-primary">
+  <div class="card-body">
+    <%= form_with model: [:admin, @badge], local: true do |form| %>
+      <%= render 'shared/errors', resource: @badge %>
+
+      <div class="form-group">
+        <p>
+          <b><%= form.label :name %></b>
+          <%= form.text_field :name, id: :name, class: 'form-control' %>
+        </p>
+
+        <p>
+          <b><%= form.label :logo %></b>
+          <p>
+            <%= image_tag @badge.logo_url if @badge.logo? %>
+            <%= form.file_field :logo %>
+          </p>
+        </p>
+
+        <p>
+          <%= form.label :remove_logo %>
+          <%= form.check_box :remove_logo %>
+        </p>
+
+        <p>
+          <b><%= form.label :description %></b>
+          <%= form.text_area :description, class: 'form-control' %>
+        </p>
+
+        <p>
+          <b><%= form.label :rule %></b>
+          <%= form.select :rule, badges_rules, selected: @badge.rule %>
+        </p>
+
+        <p>
+          <b><%= form.label :rule_value %></b>
+          <%= form.text_field :rule_value, id: :rule_value, class: 'form-control' %>
+        </p>
+
+        <p>
+          <%= form.submit t(".#{action_name}_badge"), class: "btn btn-success" %>
+          <%= link_to t('links.back'), admin_badges_path, class: 'btn btn-primary' %>
+        </p>
+
+        <h6>
+          <b> * </b>
+          <p> 1. <%= t('.level_rule') %></p>
+          <p> 2. <%= t('.category_rule') %></p>
+        </h6>
+
+        <p>
+          <%= form.label :categories_list %>
+          <%= form.select :categories_list, show_all_categories_with_ids %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+</div>

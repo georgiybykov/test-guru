@@ -23,8 +23,8 @@ tests = Test.create!([
                        { title: 'Advanced', level: 2, presence: true, category: categories[2], author: users[0] },
                        { title: 'Special', level: 3, presence: true, category: categories[3], author: users[0] },
                        { title: 'Ruby Test', level: 4, presence: true, category: categories[4], author: users[0] },
-                       { title: 'Work Flow', level: 5, presence: true, category: categories[5], author: users[0] },
-                       { title: 'Git WorkFlow', level: 7, presence: true, category: categories[6], author: users[0] }
+                       { title: 'Work Flow', level: 5, presence: true, category: categories[3], author: users[0] },
+                       { title: 'Git WorkFlow', level: 5, presence: true, category: categories[3], author: users[0] }
                      ])
 
 TestPassage.create!([
@@ -35,6 +35,13 @@ TestPassage.create!([
                       { test: tests[4], user: users[0] },
                       { test: tests[5], user: users[0] }
                     ])
+
+Badge.create!([
+               { name: 'First Attempt Badge', logo: 'default_logo.png', rule: 'first_attempt_passed?', rule_value: '', description: 'You need first success attempt for the certain test.' },
+               { name: 'Category Backend Badge', logo: 'default_logo.png', rule: 'all_tests_for_category?', rule_value: '2', description: 'You need to pass all the tests for the Backend category.' },
+               { name: 'Level Elementary Badge', logo: 'default_logo.png', rule: 'all_tests_for_level?', rule_value: '1', description: 'You need to pass all tests for the Elementary level.' },
+               { name: 'Level Hero Badge', logo: 'default_logo.png', rule: 'all_tests_for_level?', rule_value: '5', description: 'You need to pass all tests for the Hero level.' }
+             ])
 
 Question.create!([
                    { body: 'Is Ruby language for backend development?', test: tests[0], answers: [

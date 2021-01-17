@@ -7,6 +7,7 @@
     <p>
       <%= link_to t('.new_test_button'), new_admin_test_path, class: 'btn btn-success' %>
       <%= link_to t('.gists_list'), admin_gists_path, class: 'btn btn-info' %>
+      <%= link_to t('.badges_list'), admin_badges_path, class: 'btn btn-info' %>
     </p>
 
     <table class="table" style="text-align: center">
@@ -17,6 +18,7 @@
             <%= octicon 'arrow-up', class: 'text-success hide' %>
             <%= octicon 'arrow-down', class: 'text-success hide' %>
           </th>
+          <th scope="col"><%= t('.category') %></th>
           <th scope="col"><%= t('.level') %></th>
           <th scope="col"><%= t('.questions') %></th>
           <th scope="col" colspan="3"><%= t('.actions') %></th>

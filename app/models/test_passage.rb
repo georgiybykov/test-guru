@@ -1,14 +1,20 @@
 # frozen_string_literal: true
 
 class TestPassage < ApplicationRecord
+  SUCCESS_PERCENTAGE = 85
+
   belongs_to :test
   belongs_to :user
   belongs_to :current_question, class_name: 'Question', optional: true, inverse_of: :test_passages
 
   before_validation :set_next_question
 
+  scope :by_user_id, ->(user_id) { where(user_id: user_id) }
+  scope :successfully_passed, -> { where('result >= ?', SUCCESS_PERCENTAGE) }
+
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
+    self.result = percent_result
 
     save!
   end
@@ -30,7 +36,7 @@ class TestPassage < ApplicationRecord
   end
 
   def success?
-    percent_result >= 85
+    percent_result >= SUCCESS_PERCENTAGE
   end
 
   def passage_progress
@@ -43,7 +49,7 @@ class TestPassage < ApplicationRecord
     self.current_question = if new_record?
                               test.questions.order(:id).first if test.present?
                             else
-                              # Disabling the Rubocop's rule is just to save this studying example of the code
+                              # Disabling the Rubocop's rule is just to save this studying example of the code.
                               test.questions.order(:id).where('id > ?', current_question.id).first # rubocop:disable Rails/FindBy
                             end
   end

@@ -7,4 +7,19 @@ class TestsMailer < ApplicationMailer
 
     mail to: @user.email
   end
+
+  def achieved_badge(badges, user)
+    @badges_names = badges_names_list(badges)
+    @user = user
+
+    mail to: user.email
+  end
+
+  private
+
+  def badges_names_list(badges)
+    badges
+      .pluck(:name)
+      .to_sentence
+  end
 end

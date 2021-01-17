@@ -12,6 +12,12 @@ class TestPassagesController < ApplicationController
     if @test_passage.completed?
       TestsMailer.completed_test(@test_passage).deliver_now
 
+      assigned_badges = Badges::AssignBadgesService
+                          .new(test_passage: @test_passage, current_user: current_user)
+                          .fetch_assigned_badges
+
+      TestsMailer.achieved_badge(assigned_badges, current_user).deliver_now if assigned_badges.any?
+
       redirect_to result_test_passage_path(@test_passage)
     else
       render :show
@@ -21,7 +27,7 @@ class TestPassagesController < ApplicationController
   def result; end
 
   def gist
-    result = GistQuestionService.new(@test_passage.current_question).call
+    result = Gists::CreateGistQuestionService.new(question: @test_passage.current_question).call
 
     if result.success?
       gist = gist_create(result.html_url)

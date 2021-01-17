@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Admin::GistsHelper
-  def hash_of_url(url)
+  def fetch_gist_hash_from_url(url)
     url.split('/').last
   end
 end

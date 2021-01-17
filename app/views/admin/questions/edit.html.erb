@@ -3,14 +3,5 @@
     <h2 class="text-center"><b><%= t('.header', test_title: @question.test.title) %></b></h2>
 
     <%= render 'form' %>
-
-    <p>
-      <%= link_to t('links.delete'),
-                  admin_question_path(@question),
-                  method: :delete,
-                  data: { confirm: t('links.are_you_sure') },
-                  class: "btn btn-danger" %>
-      <%= link_to t('links.back'), admin_test_path(@question.test), class: "btn btn-primary" %>
-    </p>
   </div>
 </div>

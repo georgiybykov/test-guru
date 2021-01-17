@@ -5,15 +5,11 @@
     <div class="card border-primary mb-1">
       <div class="card-body">
         <h6>
-          <b>
-            <%= @question.body %>
-          </b>
+          <b><%= @question.body %></b>
         </h6>
       </div>
     </div>
 
     <%= render 'form' %>
-
-    <p><%= link_to t('links.back'), admin_question_path(@question), class: "btn btn-primary" %></p>
   </div>
 </div>

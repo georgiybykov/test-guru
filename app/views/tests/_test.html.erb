@@ -1,7 +1,8 @@
 <tbody>
   <tr>
     <td class="font-weight-bold"><%= test.title %></td>
-    <td><%= test_level(test) %></td>
+    <td><%= test.category.title %></td>
+    <td><%= t("activerecord.attributes.test.levels.#{test.level}") %></td>
     <td><%= test.questions.count %></td>
 
     <td><%= button_to t('.start_button'), start_test_path(test), class: 'btn btn-primary' %></td>

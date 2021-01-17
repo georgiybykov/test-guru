@@ -9,7 +9,19 @@
           <%= form.text_area :body, id: :question_body, class: 'form-control' %>
         </p>
 
-        <p><%= form.submit t('.create_question'), class: "btn btn-success"  %></p>
+        <p>
+          <%= form.submit t(".#{action_name}_question"), class: "btn btn-success"  %>
+
+          <% if action_name.eql?('edit') %>
+            <%= link_to t('links.delete'),
+                        admin_question_path(@question),
+                        method: :delete,
+                        data: { confirm: t('links.are_you_sure') },
+                        class: "btn btn-danger" %>
+          <% end %>
+
+          <%= link_to t('links.back'), admin_test_path(@question.test), class: "btn btn-primary" %>
+        </p>
       </div>
     <% end %>
   </div>

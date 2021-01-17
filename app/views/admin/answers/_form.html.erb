@@ -17,7 +17,19 @@
         </p>
       </div>
 
-      <p><%= form.submit t('.create_answer'), class: "btn btn-success" %></p>
+      <p>
+        <%= form.submit t(".#{action_name}_answer"), class: "btn btn-success" %>
+
+        <% if action_name.eql?('edit') %>
+          <%= link_to t('links.delete'),
+                      admin_question_path(@answer),
+                      method: :delete,
+                      data: { confirm: t('links.are_you_sure') },
+                      class: "btn btn-danger" %>
+        <% end %>
+
+        <%= link_to t('links.back'), admin_question_path(@answer.question), class: "btn btn-primary" %>
+      </p>
     <% end %>
   </div>
 </div>

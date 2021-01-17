@@ -18,8 +18,8 @@ Layout/LeadingCommentSpace:
   Exclude:
     - Gemfile
 
-Layout/DotPosition:
-  EnforcedStyle: trailing
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented_relative_to_receiver
 
 Style/Documentation:
   Enabled: false

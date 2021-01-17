@@ -1,6 +1,10 @@
 ru:
   hello: 'Добро пожаловать!'
 
+  support:
+    array:
+      last_word_connector: ' и '
+
   data:
     email: 'Электронная почта'
     first_name: 'Имя'
@@ -19,6 +23,7 @@ ru:
     sign_up: 'Регистрация'
     gist: 'Ваша сслыка на GitHub Gist'
     feedback: 'Форма обратной связи / Напишите нам'
+    profile: 'Мой Профиль'
 
   nav:
     project_title: 'TestGuru'
@@ -32,11 +37,24 @@ ru:
     sessions:
       create:
         hello: 'Привет, %{greeting}!'
+    index:
+      header: 'Профиль пользователя: '
+      first_name: 'Имя: '
+      last_name: 'Фамилия: '
+      email: 'Электронный адрес: '
+      achievements: 'Достижения пользователя'
+      name: 'Название'
+      logo: 'Логотип'
+      description: 'Описание'
+      rule: 'Правило'
+      no_achievements_warning: 'У Вас пока что нет достижений :('
+      available_achievements: 'Список всех наград'
 
   tests:
     index:
       header: 'Доступные Тесты'
       title: 'Название'
+      category: 'Категория'
       level: 'Уровень'
       questions: 'Вопросы'
       actions: 'Действия'
@@ -92,6 +110,14 @@ ru:
         correct: 'Верно?'
       feedbacks:
         body: 'Текст сообщения'
+      badge:
+        name: 'Название'
+        logo: 'Логотип'
+        remove_logo: 'Удалить логотип'
+        description: 'Описание'
+        rule: 'Правило: '
+        rule_value: '* Значение для правила:'
+        categories_list: 'Список доступных категорий для тестов с их `id`: '
     select:
       prompt: 'Выберите категорию'
 
@@ -105,11 +131,13 @@ ru:
     footer:
       git_hub_repo: 'GitHub: '
       author: 'Автор: Георгий Б.'
-      project_link: 'Тренировочный проект от школы Thinknetica'
+      project_link: 'Учебный проект от школы Thinknetica'
 
   tests_mailer:
     completed_test:
       subject: 'Вы только что прошли тест на портале TestGuru!'
+    achieved_badge:
+      subject: 'У Вас новое достижение!'
 
   feedbacks_mailer:
     send_feedback:
@@ -118,3 +146,8 @@ ru:
   services:
     gist_question_service:
       description:  'Вопрос из %{test_title} Теста из ресурса TestGuru'
+
+  badge_rules:
+    first_attempt_passed?: 'Пройти тест с первой попытки'
+    all_tests_for_level?: 'Пройти все тесты определенного уровня'
+    all_tests_for_category?: 'Пройти все тесты в определенной категории'

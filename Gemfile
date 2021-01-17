@@ -48,6 +48,9 @@ gem 'octokit', '~> 4.0'
 # Rails helper for including svg octicons in apps
 gem 'octicons_helper'
 
+# Uploads files from Ruby applications
+gem 'carrierwave', '~> 2.0'
+
 group :development, :test do
   # SHIM TO LOAD ENVIRONMENT VARIABLES
   gem 'dotenv-rails'
@@ -57,6 +60,9 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'rubocop-performance'
   gem 'rubocop-rails'
+
+  # A documentation generation tool
+  gem 'yard'
 end
 
 group :development do
