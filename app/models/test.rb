@@ -2,12 +2,12 @@
 
 class Test < ApplicationRecord
   enum level: {
-    'easy' => 0,
-    'elementary' => 1,
-    'medium' => 2,
-    'advanced' => 3,
-    'hard' => 4,
-    'hero' => 5
+    easy: 0,
+    elementary: 1,
+    medium: 2,
+    advanced: 3,
+    hard: 4,
+    hero: 5
   }.freeze
 
   belongs_to :category, optional: true
@@ -16,10 +16,9 @@ class Test < ApplicationRecord
   has_many :test_passages, dependent: :destroy
   has_many :users, through: :test_passages
 
-  validates :title, presence: true
+  validates :title, :level, :category, presence: true
   validates :title, uniqueness: { scope: :level }
   validates :level, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
-  validates :category, presence: true
 
   scope :easy_level, -> { where(level: 0..1) }
   scope :middle_level, -> { where(level: 2..4) }
