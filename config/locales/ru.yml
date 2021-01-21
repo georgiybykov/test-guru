@@ -69,6 +69,8 @@ ru:
       header: 'Прохождение Теста: %{test_title}'
       number: 'Вопрос %{current} из %{total}.'
       gist_question: 'Отправить в Gist'
+      time_left: 'Осталось времени на прохождение теста: '
+      start: '...'
       next_button: 'Следующий'
     result:
       header: 'Вы прошли Тест: '
