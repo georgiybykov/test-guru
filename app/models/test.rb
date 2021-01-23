@@ -11,7 +11,7 @@ class Test < ApplicationRecord
   }.freeze
 
   belongs_to :category, optional: true
-  belongs_to :author, class_name: 'User', inverse_of: :authored_tests, foreign_key: :author_id, touch: true
+  belongs_to :author, class_name: 'User', inverse_of: :authored_tests, touch: true
   has_many :questions, dependent: :destroy
   has_many :test_passages, dependent: :destroy
   has_many :users, through: :test_passages
