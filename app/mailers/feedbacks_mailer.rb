@@ -3,7 +3,7 @@
 class FeedbacksMailer < ApplicationMailer
   before_action { @mailer = params[:email] }
 
-  default to: 'dev.prjcts@gmail.com',
+  default to: 'test.guru.devproject@gmail.com',
           subject: -> { t('feedbacks_mailer.send_feedback.subject') }
 
   def send_feedback(feedback)
