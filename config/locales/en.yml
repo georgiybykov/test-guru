@@ -69,6 +69,8 @@ en:
       header: 'Passing the Test: %{test_title}'
       number: 'The Question %{current} of %{total}.'
       gist_question: 'Gist Question'
+      time_left: 'Time left for passing the test: '
+      start: '...'
       next_button: 'Next'
     result:
       header: 'You have been completed the Test: '

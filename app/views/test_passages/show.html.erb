@@ -26,6 +26,13 @@
       <% end %>
     </div>
 
+    <% if @test_passage.test.with_timer? %>
+      <div class="timer-left-time ml-2">
+        <b><%= "#{ t('.time_left') }" %></b>
+        <%= content_tag :div, "#{ t('.start') }", class: 'timer', data: { timer: time_left(@test_passage) } %>
+      </div>
+    <% end %>
+
     <%= content_tag :div, class: 'progress test-passage-progress', data: { percent: @test_passage.passage_progress } do %>
       <div class="progress-bar progress-bar-striped bg-success" role="progressbar">
         <%= @test_passage.passage_progress %> %

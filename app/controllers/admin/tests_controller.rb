@@ -59,7 +59,7 @@ class Admin::TestsController < Admin::BaseController
   def test_params
     params
       .require(:test)
-      .permit(:title, :level, :category_id, :author_id)
+      .permit(:title, :level, :category_id, :author_id, :passage_time)
       .tap { |params| params[:level] = params[:level]&.to_i }
   end
 

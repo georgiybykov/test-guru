@@ -18,7 +18,7 @@ class Test < ApplicationRecord
 
   validates :title, :level, :category, presence: true
   validates :title, uniqueness: { scope: :level }
-  validates :level, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :level, :passage_time, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
   scope :easy_level, -> { where(level: 0..1) }
   scope :middle_level, -> { where(level: 2..4) }
@@ -34,5 +34,9 @@ class Test < ApplicationRecord
 
   def self.show_category_title(category_title)
     by_category_titles(category_title).pluck(:title)
+  end
+
+  def with_timer?
+    passage_time.positive?
   end
 end

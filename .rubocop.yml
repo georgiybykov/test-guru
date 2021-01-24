@@ -3,7 +3,8 @@ require:
   - rubocop-rails
 
 AllCops:
-  TargetRubyVersion: 2.7.1
+  TargetRubyVersion: 3.0.0
+  NewCops: enable
   Exclude:
     - "bin/**/*"
     - "node_modules/**/*"
