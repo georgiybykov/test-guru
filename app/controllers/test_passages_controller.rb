@@ -17,8 +17,7 @@ class TestPassagesController < ApplicationController
                           .fetch_assigned_badges
 
       if assigned_badges.any?
-        SendAchievedBadgeEmailJob.set(wait: 20.seconds).perform_later(assigned_badges,
-                                                                      current_user)
+        SendAchievedBadgeEmailJob.set(wait: 20.seconds).perform_later(assigned_badges, current_user)
       end
 
       redirect_to result_test_passage_path(@test_passage)
