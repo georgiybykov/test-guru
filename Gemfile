@@ -51,6 +51,9 @@ gem 'octicons_helper'
 # Uploads files from Ruby applications
 gem 'carrierwave', '~> 2.0'
 
+# Executes tasks in the background
+gem 'delayed_job_active_record'
+
 group :development, :test do
   # SHIM TO LOAD ENVIRONMENT VARIABLES
   gem 'dotenv-rails'

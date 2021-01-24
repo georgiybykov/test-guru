@@ -10,13 +10,16 @@ class TestPassagesController < ApplicationController
     @test_passage.accept!(params[:answer_ids])
 
     if @test_passage.completed?
-      TestsMailer.completed_test(@test_passage).deliver_now
+      SendCompletedTestEmailJob.set(wait: 5.seconds).perform_later(@test_passage)
 
       assigned_badges = Badges::AssignBadgesService
                           .new(test_passage: @test_passage, current_user: current_user)
                           .fetch_assigned_badges
 
-      TestsMailer.achieved_badge(assigned_badges, current_user).deliver_now if assigned_badges.any?
+      if assigned_badges.any?
+        SendAchievedBadgeEmailJob.set(wait: 20.seconds).perform_later(assigned_badges,
+                                                                      current_user)
+      end
 
       redirect_to result_test_passage_path(@test_passage)
     else
