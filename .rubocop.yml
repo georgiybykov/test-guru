@@ -6,13 +6,15 @@ AllCops:
   TargetRubyVersion: 3.0.0
   NewCops: enable
   Exclude:
-    - "bin/**/*"
-    - "node_modules/**/*"
-    - "db/**/*"
-    - "config/**/*"
-    - "vendor/**/*"
+    - bin/**/*
+    - node_modules/**/*
+    - db/**/*
+    - vendor/**/*
 
 Layout/LineLength:
+  Exclude:
+    - config/environments/*
+    - config/initializers/devise.rb
   Max: 120
 
 Layout/LeadingCommentSpace:
@@ -65,6 +67,7 @@ Metrics/PerceivedComplexity:
 Metrics/BlockLength:
   Exclude:
     - db/seeds.rb
+    - config/environments/*
 
 Metrics/CyclomaticComplexity:
   Exclude:
