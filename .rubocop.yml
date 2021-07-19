@@ -87,3 +87,7 @@ Naming/VariableNumber:
   EnforcedStyle: non_integer
   Exclude:
     - db/seeds.rb
+
+Naming/InclusiveLanguage:
+  Exclude:
+    - app/uploaders/logo_uploader.rb
