@@ -51,7 +51,7 @@ class TestPassage < ApplicationRecord
                               test.questions.order(:id).first if test.present?
                             else
                               # Disabling the Rubocop's rule is just to save this studying example of the code.
-                              test.questions.order(:id).where('id > ?', current_question&.id).first # rubocop:disable Rails/FindBy
+                              test.questions.order(:id).where('id > ?', current_question&.id).first
                             end
   end
 
