@@ -11,22 +11,24 @@ module Badges
       @test = test_passage.test
     end
 
-    # @return [Array<Badge>]
+    # @return [Array<Badge>, ActiveRecord::Relation<Badge>]
     def fetch_assigned_badges
       return [] unless test_passage.success?
 
-      achived_badges = Badge.all.select { |badge| badge if send(badge.rule.to_sym, badge.rule_value.to_i) }
+      achieved_badges = Badge.all.select do |badge|
+        badge if send(badge.rule.to_sym, badge.rule_value.to_i)
+      end
 
-      user.badges << achived_badges if achived_badges.any?
+      user.badges << achieved_badges if achieved_badges.any?
 
-      achived_badges
+      achieved_badges
     end
 
     private
 
     attr_reader :test_passage, :user, :test
 
-    def first_attempt_passed?(_unused)
+    def first_attempt_passed?(_rule_value)
       previous_passages = TestPassage
                             .by_user_id(user.id)
                             .where(test_id: test.id)
