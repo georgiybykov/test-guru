@@ -1,5 +1,7 @@
 # Test-Guru
 
+[![CI RuboCop](https://github.com/georgiybykov/test-guru/actions/workflows/rubocop.yml/badge.svg)](https://github.com/georgiybykov/hw_app/actions)
+
 Study project from Thinknetica Web-Development Course.
 
 https://test-guru-georgiy.herokuapp.com/
